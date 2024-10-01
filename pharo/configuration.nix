@@ -99,11 +99,11 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim 
-    wget
-    htop
-  ];
+  #environment.systemPackages = with pkgs; [
+  #  vim 
+  #  wget
+  #  htop
+  #];
 
   # ZSH Config
   environment.shells = with pkgs; [ zsh bash dash ];

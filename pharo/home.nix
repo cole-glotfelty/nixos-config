@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ../user/shell/sh.nix
+    ../user/shell/cli-utils.nix
+    ../user/pkgs/git/git.nix
+    ../user/pkgs/ssh/ssh.nix
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "pharo";
@@ -19,15 +25,11 @@
   # environment.
   home.packages = with pkgs; [
       # core
-      eza
       kitty
-      neovim
-      git
       foliate
 
       ungoogled-chromium
       apple-cursor
-      zathura
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -79,63 +81,6 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
-  };
-
-  programs.zsh = {
-    enable = true;
-    autosuggestion.enable = true;
-    enableCompletion = true;
-    dotDir = ".config/zsh";
-
-    shellAliases = {
-      "ls" = "eza";
-      "ll" = "eza -l";
-      "la" = "eza -la";
-      "tree" = "eza -T";
-    };
-
-    initExtra = "bindkey '^ ' autosuggest-accept";
-
-    history = {
-      size = 1000000;
-      save = 1000000;
-    };
-
-    zplug = {
-      enable = true;
-      plugins = [
-	{ name="zsh-users/zsh-autosuggestions"; }
-	{ name="zsh-users/zsh-syntax-highlighting"; }
-	{ name="zap-zsh/completions"; }
-	{ name="zap-zsh/supercharge"; }
-	{ name="zap-zsh/atmachine-prompt"; }
-      ];
-    };
-  };
-
-  programs.ssh = {
-    enable = true;
-    extraConfig = ''
-      Host halligan
-      User cglotf01
-      HostName homework.cs.tufts.edu
-      IdentityFile /home/pharo/.ssh/id_ed25519
-      ServerAliveInterval 15
-      Port 22
-    '';
-  };
-
-  programs.bash = {
-    enable = true;
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "Cole Glotfetly";
-    userEmail = "git@postagepaid.cc";
-    extraConfig = {
-      init.defaultBranch = "main";
-    };
   };
 
   # Let Home Manager install and manage itself.
