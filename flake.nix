@@ -18,13 +18,13 @@
     nixosConfigurations = {
       nixos = lib.nixosSystem { #value is typically host name
 	inherit system;
-        modules = [ ./system/configuration.nix ];
+        modules = [ ./pharo/configuration.nix ];
       };
     };
     homeConfigurations = {
       pharo = home-manager.lib.homeManagerConfiguration {
 	inherit pkgs;
-        modules = [ ./home/home.nix ];
+        modules = [ ./pharo/home.nix ];
       };
     };
   };

@@ -18,14 +18,16 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+      # core
       eza
       kitty
+      neovim
+      git
       foliate
+
       ungoogled-chromium
       apple-cursor
       zathura
-      neovim
-      git
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -106,6 +108,7 @@
 	{ name="zsh-users/zsh-syntax-highlighting"; }
 	{ name="zap-zsh/completions"; }
 	{ name="zap-zsh/supercharge"; }
+	{ name="zap-zsh/atmachine-prompt"; }
       ];
     };
   };
