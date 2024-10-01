@@ -89,6 +89,7 @@
     isNormalUser = true;
     description = "Cole Glotfelty";
     extraGroups = [ "networkmanager" "wheel" ];
+    packages = [];
   };
 
   # Install firefox.
@@ -99,14 +100,15 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  #environment.systemPackages = with pkgs; [
-  #  vim 
-  #  wget
-  #  htop
-  #];
+  environment.systemPackages = with pkgs; [
+    vim 
+    wget
+    zsh
+    git
+  ];
 
-  # ZSH Config
-  environment.shells = with pkgs; [ zsh bash dash ];
+  # ZSH Default Shell
+  environment.shells = with pkgs; [ zsh bash ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 

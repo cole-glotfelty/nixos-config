@@ -6,6 +6,7 @@
     ../user/shell/cli-utils.nix
     ../user/pkgs/git/git.nix
     ../user/pkgs/ssh/ssh.nix
+    # ../user/pkgs/vim/vim.nix # currently borked
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
