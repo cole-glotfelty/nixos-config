@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-  home.packages = [ pkgs.vim ];
+  # home.packages = [ pkgs.vim ];
   programs.vim = {
     enable = true;
     extraConfig = ''

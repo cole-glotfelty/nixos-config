@@ -21,18 +21,12 @@
       nixos = lib.nixosSystem { #value is typically host name
 	inherit system;
         modules = [ ./pharo/configuration.nix ];
-	specialArgs = {
-	  inherit pkgs-unstable;
-	};
       };
     };
     homeConfigurations = {
       pharo = home-manager.lib.homeManagerConfiguration {
 	inherit pkgs;
         modules = [ ./pharo/home.nix ];
-	extraSpecialArgs = {
-	  inherit pkgs-unstable;
-	};
       };
     };
   };
