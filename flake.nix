@@ -8,35 +8,36 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }: 
+  # outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: 
+  outputs = inputs@{ self, ... }: 
 
   let 
     system = "x86_64-linux";
-    # pkgs = nixpkgs.legacyPackages.${system};
-    pkgs = import nixpkgs {
+    pkgs = import inputs.nixpkgs {
       inherit system;
       config = {
         allowUnfree = true;
       };
     };
-    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
 
   in {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem { #value is typically host name
-	# inherit system;
+      nixos = inputs.nixpkgs.lib.nixosSystem { #value is typically host name
         modules = [ ./pharo/configuration.nix ];
 	specialArgs = {
+	  inherit inputs;
 	  inherit pkgs;
 	  inherit pkgs-unstable;
 	};
       };
     };
     homeConfigurations = {
-      pharo = home-manager.lib.homeManagerConfiguration {
+      pharo = inputs.home-manager.lib.homeManagerConfiguration {
 	inherit pkgs;
         modules = [ ./pharo/home.nix ];
 	extraSpecialArgs = {
+	  inherit inputs;
 	  inherit pkgs-unstable;
 	};
       };
