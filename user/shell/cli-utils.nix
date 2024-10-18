@@ -11,5 +11,9 @@
     htop
     disfetch
     zathura
+
+    # Language Tools
+    rustc
+    go
   ];
 }

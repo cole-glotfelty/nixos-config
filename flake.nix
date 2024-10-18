@@ -1,5 +1,5 @@
 {
-  description = "System Configuration 2024-09-28";
+  description = "System Configuration of Cole Glotfelty";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
@@ -11,17 +11,23 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }: 
 
   let 
-    lib = nixpkgs.lib;
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    # pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+    };
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
 
   in {
     nixosConfigurations = {
-      nixos = lib.nixosSystem { #value is typically host name
-	inherit system;
+      nixos = nixpkgs.lib.nixosSystem { #value is typically host name
+	# inherit system;
         modules = [ ./pharo/configuration.nix ];
 	specialArgs = {
+	  inherit pkgs;
 	  inherit pkgs-unstable;
 	};
       };
