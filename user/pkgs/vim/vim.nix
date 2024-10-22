@@ -45,6 +45,8 @@
       nnoremap <silent> N Nzzzv
       vnoremap <silent> J :m '>+1<CR>gv=gv
       vnoremap <silent> K :m '<-2<CR>gv=gv
+      vnoremap <silent> < <gv
+      vnoremap <silent> > >gv
       
       nnoremap <silent> <leader>e :Ex<CR>
       nnoremap <silent> <leader>c :execute "set colorcolumn=" . (&colorcolumn == "" ? "81" : "")<CR>
