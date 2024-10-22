@@ -5,8 +5,6 @@
   home.packages = with pkgs; [
     bat eza ripgrep
     pandoc
-    # vim 
-    neovim
     wget curl
     htop
     disfetch
