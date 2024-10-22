@@ -100,12 +100,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # vim 
-    wget
-    zsh
-    git
-  ];
+  environment.systemPackages = with pkgs; [];
 
   # ZSH Default Shell
   environment.shells = with pkgs; [ zsh bash ];

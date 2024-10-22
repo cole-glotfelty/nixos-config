@@ -6,7 +6,7 @@
     ../user/shell/cli-utils.nix
     ../user/pkgs/git/git.nix
     ../user/pkgs/ssh/ssh.nix
-    # ../user/pkgs/vim/vim.nix # currently borked
+    ../user/pkgs/vim/vim.nix # currently borked
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -28,9 +28,9 @@
       # core
       kitty
       foliate
+      mpv
 
       ungoogled-chromium
-      apple-cursor
       slack
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
