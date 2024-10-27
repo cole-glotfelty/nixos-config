@@ -6,7 +6,8 @@
     ../user/shell/cli-utils.nix
     ../user/pkgs/git/git.nix
     ../user/pkgs/ssh/ssh.nix
-    ../user/pkgs/vim/vim.nix # currently borked
+    ../user/pkgs/vim/vim.nix 
+    ../user/pkgs/terminals/kitty.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -26,12 +27,13 @@
   # environment.
   home.packages = with pkgs; [
       # core
-      kitty
+      fira-code-nerdfont
       foliate
       mpv
 
       ungoogled-chromium
       slack
+      signal-desktop
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

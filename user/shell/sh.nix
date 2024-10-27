@@ -2,10 +2,10 @@
 
 let
   myAliases = {
-    ls = "eza";
-    ll = "eza -l";
-    la = "eza -la";
-    tree = "eza -T";
+    ls = "eza --icons";
+    ll = "eza -l --icons";
+    la = "eza -la --icons";
+    tree = "eza -T --icons";
     cat = "bat";
   };
 
@@ -24,17 +24,6 @@ in
     history = {
       size = 1000000;
       save = 1000000;
-    };
-
-    zplug = {
-      enable = true;
-      plugins = [
-	{ name="zsh-users/zsh-autosuggestions"; }
-	{ name="zsh-users/zsh-syntax-highlighting"; }
-	{ name="zap-zsh/completions"; }
-	{ name="zap-zsh/supercharge"; }
-	{ name="zap-zsh/atmachine-prompt"; }
-      ];
     };
   };
 
