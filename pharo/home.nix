@@ -8,6 +8,7 @@
     ../user/pkgs/ssh/ssh.nix
     ../user/pkgs/vim/vim.nix 
     ../user/pkgs/terminals/kitty.nix
+    ../user/pkgs/terminals/alacritty.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -32,6 +33,7 @@
       mpv
 
       ungoogled-chromium
+      discord
       slack
       signal-desktop
     # # Adds the 'hello' command to your environment. It prints a friendly

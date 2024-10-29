@@ -3,11 +3,13 @@
 {
   # CLI Utils that are useful
   home.packages = with pkgs; [
-    bat eza ripgrep
-    pandoc
+    bat eza ripgrep fd 
+    bottom
     wget curl
     htop
     disfetch
+
+    pandoc
     zathura
 
     # Language Tools

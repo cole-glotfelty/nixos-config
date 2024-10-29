@@ -19,7 +19,9 @@ in
     enableCompletion = true;
     shellAliases = myAliases;
 
-    initExtra = "bindkey '^ ' autosuggest-accept";
+    initExtra = ''
+    bindkey '^ ' autosuggest-accept
+    '';
 
     history = {
       size = 1000000;
