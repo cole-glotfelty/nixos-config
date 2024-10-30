@@ -88,6 +88,28 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    # ZDOTDIR = "${config.home.homeDirectory}/.config/zsh";
+  };
+
+  xdg = {
+    enable = true;
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      music = "${config.home.homeDirectory}/Media/Music";
+      videos = "${config.home.homeDirectory}/Media/Videos";
+      pictures = "${config.home.homeDirectory}/Media/Pictures";
+      templates = "${config.home.homeDirectory}/Templates";
+      download = "${config.home.homeDirectory}/Downloads";
+      documents = "${config.home.homeDirectory}/Documents";
+      desktop = null;
+      publicShare = null;
+      extraConfig = {
+        # ZDOTDIR = "${config.home.homeDirectory}/.config/zsh";
+        XDG_PODCAST_DIR = "${config.home.homeDirectory}/Media/Podcasts";
+        XDG_BOOK_DIR = "${config.home.homeDirectory}/Media/Books";
+      };
+    };
   };
 
   # Let Home Manager install and manage itself.

@@ -19,6 +19,16 @@ in
     enableCompletion = true;
     shellAliases = myAliases;
 
+    antidote = {
+      enable = true;
+      plugins = [
+        "zsh-users/zsh-autosuggestions"
+        "zap-zsh/supercharge"
+        "zap-zsh/atmachine-prompt"
+        "zsh-users/zsh-syntax-highlighting"
+      ];
+    };
+
     initExtra = ''
     bindkey '^ ' autosuggest-accept
     '';
