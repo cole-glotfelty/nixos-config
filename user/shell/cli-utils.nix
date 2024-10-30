@@ -3,7 +3,7 @@
 {
   # CLI Utils that are useful
   home.packages = with pkgs; [
-    bat eza ripgrep fd 
+    bat eza ripgrep fd fzf
     bottom
     wget curl
     htop

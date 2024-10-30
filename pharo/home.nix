@@ -31,6 +31,7 @@
       fira-code-nerdfont
       foliate
       mpv
+      via
 
       ungoogled-chromium
       discord
