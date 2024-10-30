@@ -8,6 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ../system/hardware-configuration.nix
+      ../system/hardware/kernel.nix
+      ../system/hardware/bluetooth.nix
     ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

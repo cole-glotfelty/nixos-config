@@ -7,8 +7,9 @@
     ../user/pkgs/git/git.nix
     ../user/pkgs/ssh/ssh.nix
     ../user/pkgs/vim/vim.nix 
-    ../user/pkgs/terminals/kitty.nix
-    ../user/pkgs/terminals/alacritty.nix
+    ../user/pkgs/bluetooth/blueman.nix 
+    ../user/apps/terminals/kitty.nix
+    ../user/apps/terminals/alacritty.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -24,8 +25,6 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = with pkgs; [
       # core
       fira-code-nerdfont
@@ -34,12 +33,11 @@
       via
 
       ungoogled-chromium
+
+      # Messaging
       discord
       slack
       signal-desktop
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -88,7 +86,6 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
-    # ZDOTDIR = "${config.home.homeDirectory}/.config/zsh";
   };
 
   xdg = {
@@ -105,7 +102,6 @@
       desktop = null;
       publicShare = null;
       extraConfig = {
-        # ZDOTDIR = "${config.home.homeDirectory}/.config/zsh";
         XDG_PODCAST_DIR = "${config.home.homeDirectory}/Media/Podcasts";
         XDG_BOOK_DIR = "${config.home.homeDirectory}/Media/Books";
       };
