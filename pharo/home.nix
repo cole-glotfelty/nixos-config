@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, userSettings, ... }:
 
 {
   imports = [
@@ -11,10 +11,14 @@
     ../user/apps/terminals/kitty.nix
     ../user/apps/terminals/alacritty.nix
   ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "pharo";
-  home.homeDirectory = "/home/pharo";
+  home.username = userSettings.username;
+  home.homeDirectory = "/home/"+userSettings.username;
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -53,39 +57,9 @@
     # '')
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-  };
-
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/pharo/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = userSettings.editor;
+    TERM = userSettings.term;
   };
 
   xdg = {
@@ -104,10 +78,12 @@
       extraConfig = {
         XDG_PODCAST_DIR = "${config.home.homeDirectory}/Media/Podcasts";
         XDG_BOOK_DIR = "${config.home.homeDirectory}/Media/Books";
+        XDG_GAME_DIR = "${config.home.homeDirectory}/Media/Games";
+        XDG_GAME_SAVE_DIR = "${config.home.homeDirectory}/Media/Game Saves";
       };
     };
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  news.display = "silent";
+
 }
