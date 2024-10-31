@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "blocklist-hosts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1730338404,
+        "narHash": "sha256-IZVtXqjDWoQJdyTqw2zUKfpBxky1oix1gByPwcbNT+4=",
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "rev": "4ee6cac784afb417535fc6e3f649e9f00200b5bf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -53,6 +69,7 @@
     },
     "root": {
       "inputs": {
+        "blocklist-hosts": "blocklist-hosts",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable"

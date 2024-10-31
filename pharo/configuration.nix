@@ -14,6 +14,9 @@
       ../system/hardware/opengl.nix
       ../system/hardware/gc.nix
       ../system/hardware/printing.nix
+      ../system/security/blocklist.nix
+      ../system/security/doas.nix
+      ../system/apps/mullvad-vpn.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -53,10 +56,6 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  # Enable Mullvad VPN
-  services.mullvad-vpn.enable = true;
-  services.mullvad-vpn.package = pkgs.mullvad-vpn;
-
   # Configure keymap in X11
   services.xserver = {
     xkb.layout = "us";
@@ -94,7 +93,14 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [
+    vim
+    git
+    zsh
+    home-manager
+    wget
+    curl
+  ];
 
   # ZSH Default Shell
   environment.shells = with pkgs; [ zsh bash ];

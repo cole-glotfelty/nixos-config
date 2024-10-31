@@ -3,7 +3,7 @@
 {
   programs.kitty = {
     enable = true;
-    shellIntegration.mode = "no-cursor";
+    shellIntegration.mode = "no-cursor no-sudo";
     shellIntegration.enableZshIntegration = true;
     shellIntegration.enableBashIntegration = true;
     font.name = "FiraCode Nerd Font Mono";

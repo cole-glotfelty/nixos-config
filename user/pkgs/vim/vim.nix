@@ -1,9 +1,7 @@
 { ... }:
 
 {
-  programs.vim = {
-    enable = true;
-    extraConfig = ''
+  home.file.".vimrc".text = ''
       " Numbering
       set nu
       set relativenumber
@@ -15,6 +13,9 @@
       
       set smartindent
       set scrolloff=8
+
+			" forcing 2 space indentation for nix files
+			autocmd FileType nix setlocal tabstop=2 softtabstop=2 shiftwidth=2
       
       "Backspace Stuff
       set backspace=indent,eol,start
@@ -52,5 +53,4 @@
       nnoremap <silent> <leader>c :execute "set colorcolumn=" . (&colorcolumn == "" ? "81" : "")<CR>
       nnoremap <silent> <leader>x :!chmod +x %<CR>
     '';
-  };
 }
