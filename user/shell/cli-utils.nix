@@ -13,7 +13,10 @@
     zathura
 
     # Language Tools
+		gcc # clang
     rustc
+		cargo
     go
+		python3
   ];
 }

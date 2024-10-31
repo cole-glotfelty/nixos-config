@@ -7,6 +7,7 @@
     ../user/pkgs/git/git.nix
     ../user/pkgs/ssh/ssh.nix
     ../user/pkgs/vim/vim.nix 
+    ../user/pkgs/neovim/neovim.nix 
     ../user/pkgs/bluetooth/blueman.nix 
     ../user/apps/terminals/kitty.nix
     ../user/apps/terminals/alacritty.nix

@@ -97,13 +97,14 @@
     vim
     git
     zsh
+		unzip
     home-manager
     wget
     curl
   ];
 
   # ZSH Default Shell
-  environment.shells = with pkgs; [ zsh bash ];
+  environment.shells = with pkgs; [ zsh bash nushell ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
