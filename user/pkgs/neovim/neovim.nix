@@ -5,7 +5,7 @@
 		enable = true;
 
 		viAlias = true;
-		# vimAlias = true; # this could cause problems
+		vimAlias = true; # this could cause problems
 		vimdiffAlias = true;
 
 		plugins = with pkgs.vimPlugins; [

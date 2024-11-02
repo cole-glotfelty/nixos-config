@@ -2,11 +2,11 @@
 
 let
   myAliases = {
-    ls = "eza --icons";
-    ll = "eza -l --icons";
-    la = "eza -la --icons";
-    tree = "eza -T --icons";
-    cat = "bat";
+    ls = "${pkgs.eza}/bin/eza --icons";
+    ll = "${pkgs.eza}/bin/eza -l --icons";
+    la = "${pkgs.eza}/bin/eza -la --icons";
+    tree = "${pkgs.eza}/bin/eza -T --icons";
+    cat = "${pkgs.bat}/bin/bat";
   };
 
 in
@@ -44,8 +44,4 @@ in
     enableCompletion = true;
     shellAliases = myAliases;
   };
-
-  home.packages = with pkgs; [
-    eza bat
-  ];
 }

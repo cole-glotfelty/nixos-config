@@ -2,29 +2,30 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, lib, systemSettings, userSettings, ... }:
+{ inputs, pkgs, lib, systemSettings, userSettings, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ../system/hardware-configuration.nix
-      ../system/hardware/kernel.nix
-      ../system/hardware/bluetooth.nix
-      ../system/hardware/time.nix
-      ../system/hardware/opengl.nix
-      ../system/hardware/gc.nix
-      ../system/hardware/printing.nix
-      ../system/security/blocklist.nix
-      ../system/security/doas.nix
-      ../system/apps/mullvad-vpn.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ../system/hardware-configuration.nix
+    ../system/hardware/kernel.nix
+    ../system/hardware/bluetooth.nix
+    ../system/hardware/time.nix
+    ../system/hardware/opengl.nix
+    ../system/hardware/gc.nix
+    ../system/hardware/printing.nix
+    ../system/security/blocklist.nix
+    ../system/security/doas.nix
+    ../system/apps/mullvad-vpn.nix
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.luks.devices."luks-790d043b-cb5d-4347-baf8-3e81681045f8".device = "/dev/disk/by-uuid/790d043b-cb5d-4347-baf8-3e81681045f8";
+  boot.initrd.luks.devices."luks-790d043b-cb5d-4347-baf8-3e81681045f8".device =
+    "/dev/disk/by-uuid/790d043b-cb5d-4347-baf8-3e81681045f8";
 
   # Enable networking
   networking.hostName = systemSettings.hostname;
@@ -82,7 +83,7 @@
     isNormalUser = true;
     description = userSettings.name;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = [];
+    packages = [ ];
   };
 
   # Install firefox.
@@ -97,10 +98,11 @@
     vim
     git
     zsh
-		unzip
+    unzip
     home-manager
     wget
     curl
+    nixd
   ];
 
   # ZSH Default Shell
@@ -110,10 +112,7 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal
-      pkgs.xdg-desktop-portal-gtk
-    ];
+    extraPortals = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-gtk ];
   };
 
   # This value determines the NixOS release from which the default

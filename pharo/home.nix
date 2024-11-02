@@ -7,7 +7,8 @@
     ../user/pkgs/git/git.nix
     ../user/pkgs/ssh/ssh.nix
     ../user/pkgs/vim/vim.nix 
-    ../user/pkgs/neovim/neovim.nix 
+    # ../user/pkgs/neovim/neovim.nix 
+    ../user/pkgs/nixvim/nixvim.nix 
     ../user/pkgs/bluetooth/blueman.nix 
     ../user/apps/terminals/kitty.nix
     ../user/apps/terminals/alacritty.nix
@@ -17,6 +18,7 @@
   # manage.
   home.username = userSettings.username;
   home.homeDirectory = "/home/"+userSettings.username;
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
