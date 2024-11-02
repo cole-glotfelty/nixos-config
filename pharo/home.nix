@@ -6,10 +6,10 @@
     ../user/shell/cli-utils.nix
     ../user/pkgs/git/git.nix
     ../user/pkgs/ssh/ssh.nix
-    ../user/pkgs/vim/vim.nix 
+    ../user/pkgs/vim/vim.nix
     # ../user/pkgs/neovim/neovim.nix 
-    ../user/pkgs/nixvim/nixvim.nix 
-    ../user/pkgs/bluetooth/blueman.nix 
+    ../user/pkgs/nixvim/nixvim.nix
+    ../user/pkgs/bluetooth/blueman.nix
     ../user/apps/terminals/kitty.nix
     ../user/apps/terminals/alacritty.nix
   ];
@@ -17,8 +17,7 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = userSettings.username;
-  home.homeDirectory = "/home/"+userSettings.username;
-
+  home.homeDirectory = "/home/" + userSettings.username;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -33,18 +32,18 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
-      # core
-      fira-code-nerdfont
-      foliate
-      mpv
-      via
+    # core
+    fira-code-nerdfont
+    foliate
+    mpv
+    via
 
-      ungoogled-chromium
+    ungoogled-chromium
 
-      # Messaging
-      discord
-      slack
-      signal-desktop
+    # Messaging
+    discord
+    slack
+    signal-desktop
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

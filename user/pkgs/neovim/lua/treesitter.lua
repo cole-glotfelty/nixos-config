@@ -4,7 +4,7 @@
 vim.opt.runtimepath:append(vim.fn.stdpath('data') .. '/parsers')
 require'nvim-treesitter.configs'.setup {
 	-- Specify a writable location for parsers
-	parser_install_dir = vim.fn.stdpath('data') .. '/parsers', 
+	parser_install_dir = vim.fn.stdpath('data') .. '/parsers',
 
     -- A list of parser names, or "all" (the four listed parsers should always be installed)
     ensure_installed = { "python", "cpp", "c", "lua", "vim", "vimdoc", "yaml", "toml", "rust", "nix" },

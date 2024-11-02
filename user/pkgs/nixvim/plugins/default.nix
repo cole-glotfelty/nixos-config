@@ -21,5 +21,11 @@
       todo-comments.enable = true;
       nix.enable = true;
     };
+    extraPlugins = with pkgs.vimPlugins; [
+      {
+        plugin = neodev-nvim;
+        config = ''lua require("neodev").setup()'';
+      }
+    ];
   };
 }

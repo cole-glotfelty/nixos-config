@@ -259,6 +259,15 @@
         options.silent = true;
       }
 
+      {
+        mode = "n";
+        key = "<leader>a";
+        action = ":lua vim.lsp.buf.code_action()<CR>";
+        options.desc = "Code Action";
+        options.noremap = true;
+        options.silent = true;
+      }
+
       # -- Apply first quickfix/Code Actions
       # -- credit: https://stackoverflow.com/questions/67988374/neovim-lsp-auto-fix-fix-current
       # local function quickfix()

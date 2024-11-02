@@ -13,9 +13,9 @@
             };
             options = {
               nixos.expr = ''
-                (builtins.getFlake "../../../../flake.nix").nixosConfigurations.${systemSettings.hostname}.options'';
+              (builtins.getFlake ("git+file://" + toString ./.)).nixosConfigurations.${systemSettings.hostname}.options'';
               home-manager.expr = ''
-                (builtins.getFlake "../../../../flake.nix").homeConfigurations.${userSettings.username}.options'';
+              (builtins.getFlake ("git+file://" + toString ./.)).homeConfigurations."${userSettings.username}".options'';
             };
           };
         };
