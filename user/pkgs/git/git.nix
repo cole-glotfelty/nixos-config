@@ -1,4 +1,4 @@
-{ ... }:
+{ userSettings, ... }:
 
 {
   programs.git = {
@@ -10,6 +10,8 @@
     };
     extraConfig = {
       init.defaultBranch = "main";
+          safe.directory = [ ("/home/" + userSettings.username + "/nixos-config")
+                       ("/home/" + userSettings.username + "/.nixos-config/.git") ];
     };
   };
 }
