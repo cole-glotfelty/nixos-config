@@ -2,7 +2,6 @@
   description = "System Configuration of Cole Glotfelty";
 
   outputs = inputs@{ self, ... }:
-
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -22,12 +21,11 @@
 
       pkgs = import inputs.nixpkgs {
         system = systemSettings.system;
-        config = { allowUnfree = true; };
+        config.allowUnfree = true;
       };
-
-      pkgs-unstable = import inputs.nixpkgs-unstable {
+      pkgs-stable = import inputs.nixpkgs-stable {
         system = systemSettings.system;
-        config = { allowUnfree = true; };
+        config.allowUnfree = true;
       };
 
       lib = inputs.nixpkgs.lib;
@@ -37,16 +35,14 @@
       nixosConfigurations = {
         nixos = lib.nixosSystem { # value is typically host name
           system = systemSettings.system;
-          modules = [
-            ./pharo/configuration.nix
-            # inputs.stylix.nixosModules.stylix 
-          ];
+          modules =
+            [ ./pharo/configuration.nix inputs.stylix.nixosModules.stylix ];
           specialArgs = {
             inherit inputs;
             inherit systemSettings;
             inherit userSettings;
             inherit pkgs;
-            inherit pkgs-unstable;
+            inherit pkgs-stable;
           };
         };
       };
@@ -57,34 +53,34 @@
           modules = [ ./pharo/home.nix ];
           extraSpecialArgs = {
             inherit inputs;
+            inherit pkgs-stable;
             inherit systemSettings;
             inherit userSettings;
-            inherit pkgs-unstable;
           };
         };
       };
     };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # hyprland = {
-    #   url = "github:hyprwm/Hyprland";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
 
-    # stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix";
 
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.05";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -92,11 +88,5 @@
       url = "github:StevenBlack/hosts";
       flake = false;
     };
-
-    # TODO: Get this working with swww
-    # wallpapers = {
-    #   url = "gitlab:cole-glotfelty/wallpapers";
-    #   flake = false;
-    # };
   };
 }

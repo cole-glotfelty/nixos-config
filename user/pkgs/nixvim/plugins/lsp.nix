@@ -21,10 +21,10 @@
         };
         clangd.enable = true;
         pylsp.enable = true;
-        lua-ls.enable = true;
-        rust-analyzer.enable = true;
-        rust-analyzer.installCargo = true;
-        rust-analyzer.installRustc = true;
+        lua_ls.enable = true;
+        rust_analyzer.enable = true;
+        rust_analyzer.installCargo = true;
+        rust_analyzer.installRustc = true;
       };
       keymaps.lspBuf = {
         "gd" = "definition";

@@ -20,6 +20,7 @@
       comment.enable = true;
       todo-comments.enable = true;
       nix.enable = true;
+      web-devicons.enable = true;
     };
     extraPlugins = with pkgs.vimPlugins; [
       {

@@ -9,13 +9,12 @@
     networkmanagerapplet
     # Dependencies
     libnotify
-    polkit_gnome
+    # polkit_gnome
     wl-clipboard
     slurp
     grim
     playerctl
-    # RIP Using Unstable Packages
-    #pkgs-unstable.hyprpolkitagent 
+    hyprpolkitagent 
   ];
 
   services.dunst.enable = true;
@@ -28,6 +27,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     settings = {
       # Settings Programs to Use
       "$terminal" = "kitty";

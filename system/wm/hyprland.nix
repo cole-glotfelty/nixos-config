@@ -18,7 +18,7 @@
   programs.hyprland = {
     enable = true;
     # Below line is fubar
-    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xwayland.enable = true;
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
