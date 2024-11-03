@@ -10,6 +10,7 @@
     # ../user/pkgs/neovim/neovim.nix 
     ../user/pkgs/nixvim/nixvim.nix
     ../user/pkgs/bluetooth/blueman.nix
+    ../user/pkgs/ranger/ranger.nix
     ../user/apps/terminals/kitty.nix
     ../user/apps/terminals/alacritty.nix
     ../user/wm/hyprland.nix
@@ -35,7 +36,6 @@
 
   home.packages = with pkgs; [
     # core
-    # fira-code-nerdfont
     foliate
     mpv
     via

@@ -36,7 +36,10 @@
       nixosConfigurations = {
         nixos = lib.nixosSystem { # value is typically host name
           system = systemSettings.system;
-          modules = [ ./pharo/configuration.nix ];
+          modules = [
+            ./pharo/configuration.nix
+            # inputs.stylix.nixosModules.stylix 
+          ];
           specialArgs = {
             inherit inputs;
             inherit systemSettings;
@@ -77,6 +80,8 @@
     #   inputs.hyprland.follows = "hyprland";
     # };
 
+    # stylix.url = "github:danth/stylix";
+
     nixvim = {
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -86,5 +91,11 @@
       url = "github:StevenBlack/hosts";
       flake = false;
     };
+
+    # TODO: Get this working with swww
+    # wallpapers = {
+    #   url = "gitlab:cole-glotfelty/wallpapers";
+    #   flake = false;
+    # };
   };
 }

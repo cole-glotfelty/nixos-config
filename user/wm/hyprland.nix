@@ -3,13 +3,28 @@
 {
   home.packages = with pkgs; [
     dunst
+    wofi
+    swww
+    pavucontrol
+    networkmanagerapplet
+    # Dependencies
+    libnotify
     polkit_gnome
     wl-clipboard
-    wofi
+    slurp
+    grim
     playerctl
     # RIP Using Unstable Packages
     #pkgs-unstable.hyprpolkitagent 
   ];
+
+  services.dunst.enable = true;
+  programs.waybar = {
+    enable = true;
+    package = (pkgs.waybar.overrideAttrs (oldAtts: {
+      mesonFlags = oldAtts.mesonFlags ++ [ "-Dexperimental=true" ];
+    }));
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -23,6 +38,14 @@
 
       # See https://wiki.hyprland.org/Configuring/Environment-variables/
       env = [ "XCURSOR_SIZE,24" "HYPRCURSOR_SIZE,24" ];
+
+      ## AUTOSTART ##
+      exec-once = [
+        "swww init"
+        "swww img ~/Media/Pictures/wallpapers/landscapes-w-people/x-wing.png"
+        "waybar"
+        "nm-applet"
+      ];
 
       ## INPUTS ##
       # https://wiki.hyprland.org/Configuring/Variables/#input
@@ -146,7 +169,7 @@
       # https://wiki.hyprland.org/Configuring/Variables/#misc
       misc = {
         force_default_wallpaper =
-          -1; # Set to 0 or 1 to disable the anime mascot wallpapers
+          0; # Set to 0 or 1 to disable the anime mascot wallpapers
         disable_hyprland_logo =
           false; # If true disables the random hyprland logo / anime girl background. :(
       };
@@ -157,8 +180,9 @@
       bind = [
         "$mainMod, RETURN, exec, $terminal"
         "$mainMod SHIFT, Q, killactive"
-        "$mainMod, R, exec, $menu"
+        "$mainMod, D, exec, $menu"
         "$mainMod, M, exit"
+        ''$mainMod SHIFT, S, exec, grim -l 0 -g "$(slurp)" - | wl-copy''
 
         # Moving focus with hjkl
         "$mainMod, H, movefocus, l"
@@ -192,7 +216,8 @@
 
         # Example special workspace (scratchpad)
         "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        # Allows you to send things to the scratchpad
+        "ALT SHIFT, S, movetoworkspace, special:magic"
 
         # Scroll through existing workspaces with mainMod + scroll
         "$mainMod, mouse_down, workspace, e+1"
@@ -273,7 +298,7 @@
 
 
       # Move/resize windows with mainMod + LMB/RMB and dragging
-      # bindm = $mainMod, mouse:272, movewindow
+      bindm = $mainMod, mouse:272, movewindow
       # bindm = $mainMod, mouse:273, resizewindow
     '';
   };
