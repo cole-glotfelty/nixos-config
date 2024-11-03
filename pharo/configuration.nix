@@ -1,5 +1,5 @@
 # Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
+# your system. Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { inputs, pkgs, lib, systemSettings, userSettings, ... }:
@@ -16,10 +16,11 @@
     ../system/security/blocklist.nix
     ../system/security/doas.nix
     ../system/apps/mullvad-vpn.nix
+    ../system/wm/hyprland.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ]; # for nixd LSP
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -49,34 +50,9 @@
     LC_TIME = systemSettings.locale;
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "";
-  };
-
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    jack.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${userSettings.username} = {
@@ -85,9 +61,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = [ ];
   };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -102,17 +75,21 @@
     home-manager
     wget
     curl
-    nixd
+    nixd # nix LSP
   ];
 
   # ZSH Default Shell
-  environment.shells = with pkgs; [ zsh bash nushell ];
+  environment.shells = with pkgs; [ zsh bash ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+    ];
   };
 
   # This value determines the NixOS release from which the default

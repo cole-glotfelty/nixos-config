@@ -12,6 +12,8 @@
     ../user/pkgs/bluetooth/blueman.nix
     ../user/apps/terminals/kitty.nix
     ../user/apps/terminals/alacritty.nix
+    ../user/wm/hyprland.nix
+    # ../user/apps/browsers/librewolf.nix  TODO: Make this module actually work
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -33,12 +35,13 @@
 
   home.packages = with pkgs; [
     # core
-    fira-code-nerdfont
+    # fira-code-nerdfont
     foliate
     mpv
     via
 
     ungoogled-chromium
+    firefox
 
     # Messaging
     discord
@@ -62,6 +65,7 @@
   home.sessionVariables = {
     EDITOR = userSettings.editor;
     TERM = userSettings.term;
+    BROWSER = userSettings.browser;
   };
 
   xdg = {
