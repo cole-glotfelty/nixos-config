@@ -6,6 +6,7 @@
     let
       systemSettings = {
         system = "x86_64-linux";
+        host = "Optiplex 7040";
         hostname = "nixos";
         timezone = "America/New_York";
         locale = "en_US.UTF-8";

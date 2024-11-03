@@ -7,6 +7,7 @@
 {
   imports = [ # Include the results of the hardware scan.
     ../system/hardware-configuration.nix
+    ../system/hardware/LUKS.nix
     ../system/hardware/kernel.nix
     ../system/hardware/bluetooth.nix
     ../system/hardware/time.nix
@@ -25,8 +26,6 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.luks.devices."luks-790d043b-cb5d-4347-baf8-3e81681045f8".device =
-    "/dev/disk/by-uuid/790d043b-cb5d-4347-baf8-3e81681045f8";
 
   # Enable networking
   networking.hostName = systemSettings.hostname;
@@ -49,10 +48,6 @@
     LC_TELEPHONE = systemSettings.locale;
     LC_TIME = systemSettings.locale;
   };
-
-  # Enable the KDE Plasma Desktop Environment.
-  # services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${userSettings.username} = {
