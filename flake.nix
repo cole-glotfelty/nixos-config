@@ -35,8 +35,7 @@
       nixosConfigurations = {
         nixos = lib.nixosSystem { # value is typically host name
           system = systemSettings.system;
-          modules =
-            [ ./pharo/configuration.nix inputs.stylix.nixosModules.stylix ];
+          modules = [ ./pharo/configuration.nix ];
           specialArgs = {
             inherit inputs;
             inherit systemSettings;

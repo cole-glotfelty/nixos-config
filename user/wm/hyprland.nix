@@ -4,9 +4,9 @@
   home.packages = with pkgs; [
     dunst
     wofi
-    swww
     pavucontrol
     networkmanagerapplet
+    hyprpaper
     # Dependencies
     libnotify
     # polkit_gnome
@@ -14,7 +14,7 @@
     slurp
     grim
     playerctl
-    hyprpolkitagent 
+    hyprpolkitagent
   ];
 
   services.dunst.enable = true;
@@ -37,15 +37,16 @@
       "monitor" = ",preferred,auto,auto";
 
       # See https://wiki.hyprland.org/Configuring/Environment-variables/
-      env = [ "XCURSOR_SIZE,24" "HYPRCURSOR_SIZE,24" ];
+      env = [
+        "XDG_CURRENT_DESKTOP,Hyprland"
+        "XDG_SESSION_DESKTOP,Hyprland"
+        "XDG_SESSION_TYPE,wayland"
+        "XCURSOR_SIZE,24"
+        "HYPRCURSOR_SIZE,24"
+      ];
 
       ## AUTOSTART ##
-      exec-once = [
-        "swww init"
-        "swww img ~/Media/Pictures/wallpapers/landscapes-w-people/x-wing.png"
-        "waybar"
-        "nm-applet"
-      ];
+      exec-once = [ "waybar" "nm-applet" "hyprpaper" ];
 
       ## INPUTS ##
       # https://wiki.hyprland.org/Configuring/Variables/#input
@@ -171,7 +172,7 @@
         force_default_wallpaper =
           0; # Set to 0 or 1 to disable the anime mascot wallpapers
         disable_hyprland_logo =
-          false; # If true disables the random hyprland logo / anime girl background. :(
+          true; # If true disables the random hyprland logo / anime girl background. :(
       };
 
       ## KEYMAPS ##

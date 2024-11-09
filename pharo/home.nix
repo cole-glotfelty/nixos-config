@@ -14,6 +14,7 @@
     ../user/apps/terminals/kitty.nix
     ../user/apps/terminals/alacritty.nix
     ../user/wm/hyprland.nix
+    ../user/style/stylix.nix
     # ../user/apps/browsers/librewolf.nix  TODO: Make this module actually work
   ];
 
@@ -35,11 +36,20 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
-    # core
-    foliate
-    mpv
+    # Core
+    sshfs
+    magic-wormhole
+    libqalculate # qalc
+
+    # Keyboard Configuration
     via
 
+    #Media
+    foliate
+    mpv
+    cmus
+
+    # Browsers
     ungoogled-chromium
     firefox
 

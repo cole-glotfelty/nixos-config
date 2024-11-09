@@ -6,7 +6,7 @@
     shellIntegration.mode = "no-cursor no-sudo";
     shellIntegration.enableZshIntegration = true;
     shellIntegration.enableBashIntegration = true;
-    font.name = "FiraCode Nerd Font Mono";
+    # font.name = "FiraCode Nerd Font Mono";
     settings = {
       cursor_shape = "block";
       cursor_blink_interval = 0;

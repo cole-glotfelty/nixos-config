@@ -18,6 +18,7 @@
     ../system/security/doas.nix
     ../system/apps/mullvad-vpn.nix
     ../system/wm/hyprland.nix
+    ../system/style/stylix.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -80,10 +81,8 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal
-      pkgs.xdg-desktop-portal-gtk
-    ];
+    # Unfuck this part
+    extraPortals = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-gtk ];
   };
 
   # This value determines the NixOS release from which the default
