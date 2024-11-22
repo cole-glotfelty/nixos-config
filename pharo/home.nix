@@ -35,23 +35,27 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+  programs.firefox.enable = true;
+
   home.packages = with pkgs; [
     # Core
     sshfs
     magic-wormhole
     libqalculate # qalc
+    tealdeer
 
     # Keyboard Configuration
     via
 
     #Media
     foliate
+    zathura
     mpv
+    qbittorrent
     cmus
 
     # Browsers
     ungoogled-chromium
-    firefox
 
     # Messaging
     discord
@@ -76,6 +80,7 @@
     EDITOR = userSettings.editor;
     TERM = userSettings.term;
     BROWSER = userSettings.browser;
+    MANPAGER = userSettings.editor;
   };
 
   xdg = {

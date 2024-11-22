@@ -1,12 +1,15 @@
 { inputs, pkgs, ... }:
 
 {
+  imports = [ ./input/zhongwen.nix ];
+
   home.packages = with pkgs; [
     dunst
     wofi
     pavucontrol
     networkmanagerapplet
     hyprpaper
+    hyprpicker
     # Dependencies
     libnotify
     # polkit_gnome
@@ -46,7 +49,12 @@
       ];
 
       ## AUTOSTART ##
-      exec-once = [ "waybar" "nm-applet" "hyprpaper" ];
+      exec-once = [ 
+        "waybar" 
+        "nm-applet" 
+        "hyprpaper" 
+        "fcitx5" 
+      ];
 
       ## INPUTS ##
       # https://wiki.hyprland.org/Configuring/Variables/#input

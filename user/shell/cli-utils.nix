@@ -4,16 +4,17 @@
   # CLI Utils that are useful
   home.packages = with pkgs; [
     bat eza ripgrep fd fzf
-    bottom
+    htop bottom
     wget curl
-    htop
-    disfetch
+    fastfetch # has home manager options
 
+    # Applications
     pandoc
-    zathura
+    imagemagick
+    hugo
 
     # Language Tools
-    gcc # clang
+    gcc # clang # have to choose one
     rustc
     cargo
     go
