@@ -12,5 +12,6 @@
       automatic = true;
       dates = [ "03:30" ];
     };
+    settings.auto-optimise-store = true;
   };
 }

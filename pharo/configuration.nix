@@ -18,7 +18,7 @@
     ../system/security/doas.nix
     ../system/apps/mullvad-vpn.nix
     ../system/wm/hyprland.nix
-    ../system/style/stylix.nix
+    # ../system/style/stylix.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
