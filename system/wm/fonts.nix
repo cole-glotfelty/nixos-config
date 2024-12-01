@@ -2,7 +2,7 @@
 
 {
   fonts.packages = with pkgs; [
-    nerdfonts
+    nerd-fonts.fira-code
     corefonts
     source-han-sans
     source-han-serif

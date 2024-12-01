@@ -14,7 +14,7 @@
     ../user/apps/terminals/kitty.nix
     ../user/apps/terminals/alacritty.nix
     ../user/wm/hyprland.nix
-    # ../user/style/stylix.nix
+    ../user/style/stylix.nix
     # ../user/apps/browsers/librewolf.nix  TODO: Make this module actually work
   ];
 
