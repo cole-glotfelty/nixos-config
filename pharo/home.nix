@@ -44,6 +44,9 @@
     libqalculate # qalc
     tealdeer
 
+    # To Remove
+    vscode
+
     # Keyboard Configuration
     via
 

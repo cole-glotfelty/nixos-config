@@ -24,6 +24,15 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ]; # for nixd LSP
 
+  # Maybe fixes firefox's weirdness
+  boot.kernelParams = [ "intel_pstate=active" "vm.swappiness=10" ];
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 25;
+  };
+
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
