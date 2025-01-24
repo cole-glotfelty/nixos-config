@@ -19,5 +19,6 @@
     cargo
     go
     python3
+    erlang
   ];
 }

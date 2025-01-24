@@ -20,6 +20,7 @@
           };
         };
         clangd.enable = true;
+        erlangls.enable = true;
         pylsp.enable = true;
         lua_ls.enable = true;
         rust_analyzer.enable = true;
