@@ -5,7 +5,7 @@ let
     inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in {
   imports = [
-    ./wayland.nix 
+    ./wayland.nix
     # ./ly.nix # why this no work
   ];
 
