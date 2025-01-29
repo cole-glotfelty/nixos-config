@@ -1,5 +1,7 @@
 { ... }:
 
+# cmp.nix
+
 {
   programs.nixvim.plugins = {
     luasnip.enable = true;
@@ -8,6 +10,7 @@
     cmp-buffer.enable = true;
     cmp-path.enable = true;
     cmp-nvim-lua.enable = true;
+    cmp-vimtex.enable = true;
     # lsp-format.enable = true; # formats on save
 
     cmp = {

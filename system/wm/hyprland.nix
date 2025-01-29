@@ -4,7 +4,10 @@ let
   pkgs-hyprland =
     inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in {
-  imports = [ ./wayland.nix ];
+  imports = [
+    ./wayland.nix 
+    # ./ly.nix # why this no work
+  ];
 
   # Security
   security = { pam.services.login.enableGnomeKeyring = true; };

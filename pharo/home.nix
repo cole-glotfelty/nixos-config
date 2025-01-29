@@ -8,6 +8,7 @@
     ../user/pkgs/ssh/ssh.nix
     ../user/pkgs/vim/vim.nix
     # ../user/pkgs/neovim/neovim.nix 
+    ../user/pkgs/latex/latex.nix
     ../user/pkgs/nixvim/nixvim.nix
     ../user/pkgs/bluetooth/blueman.nix
     ../user/pkgs/ranger/ranger.nix

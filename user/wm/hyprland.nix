@@ -49,7 +49,7 @@
       ];
 
       ## AUTOSTART ##
-      exec-once = [ "waybar" "nm-applet" "hyprpaper" "fcitx5" ];
+      exec-once = [ "waybar &" "nm-applet &" "hyprpaper &" "fcitx5 &" ];
 
       ## INPUTS ##
       # https://wiki.hyprland.org/Configuring/Variables/#input

@@ -9,6 +9,7 @@
     ./cmp.nix
     ./autoclose.nix
     ./treesitter.nix
+    ./vimtex.nix
   ];
 
   programs.nixvim = {
@@ -22,11 +23,9 @@
       nix.enable = true;
       web-devicons.enable = true;
     };
-    extraPlugins = with pkgs.vimPlugins; [
-      {
-        plugin = neodev-nvim;
-        config = ''lua require("neodev").setup()'';
-      }
-    ];
+    extraPlugins = with pkgs.vimPlugins; [{
+      plugin = neodev-nvim;
+      config = ''lua require("neodev").setup()'';
+    }];
   };
 }

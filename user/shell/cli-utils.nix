@@ -14,11 +14,11 @@
     hugo
 
     # Language Tools
-    gcc # clang # have to choose one
-    rustc
-    cargo
-    go
-    python3
-    erlang
+    # gcc # clang # have to choose one
+    # rustc
+    # cargo
+    # go
+    # python3
+    # erlang
   ];
 }
