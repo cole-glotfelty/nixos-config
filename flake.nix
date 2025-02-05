@@ -87,5 +87,9 @@
       url = "github:StevenBlack/hosts";
       flake = false;
     };
+    apple-emoji = {
+      url = "github:zhdsmy/apple-emoji";
+      flake = false;
+    };
   };
 }

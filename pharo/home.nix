@@ -55,6 +55,7 @@
     foliate
     zathura
     mpv
+    feh
     qbittorrent
     cmus
 
@@ -105,6 +106,21 @@
         XDG_BOOK_DIR = "${config.home.homeDirectory}/Media/Books";
         XDG_GAME_DIR = "${config.home.homeDirectory}/Media/Games";
         XDG_GAME_SAVE_DIR = "${config.home.homeDirectory}/Media/Game Saves";
+      };
+    };
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        # "text/plain" = ["neovim.desktop"];
+        # "text/plain" = ["nvim.desktop"];
+        "text/plain" = [ "${userSettings.editor}.desktop" ];
+        "text/*" = [ "${userSettings.editor}.desktop" ];
+        "image/*" = [ "feh.desktop" ];
+        "video/*" = [ "mpv.desktop" ];
+        "application/pdf" = [ "zathura.desktop" ];
+        "x-scheme-handler/https" = [ "${userSettings.browser}.desktop" ]; # Links
+        "x-scheme-handler/http" = [ "${userSettings.browser}.desktop" ]; # Links
+        #"x-scheme-handler/mailto" = ["firefox.desktop"]; # Email
       };
     };
   };

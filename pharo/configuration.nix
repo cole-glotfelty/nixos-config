@@ -10,6 +10,7 @@
     ../system/hardware/LUKS.nix
     ../system/hardware/kernel.nix
     ../system/hardware/bluetooth.nix
+    ../system/hardware/usb.nix
     ../system/hardware/time.nix
     ../system/hardware/opengl.nix
     ../system/hardware/gc.nix
@@ -24,14 +25,13 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ]; # for nixd LSP
 
-  # Maybe fixes firefox's weirdness
+  # Maybe fixes youtube/firefox's weirdness
   boot.kernelParams = [ "intel_pstate=active" "vm.swappiness=10" ];
   zramSwap = {
     enable = true;
     algorithm = "zstd";
     memoryPercent = 25;
   };
-
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -69,7 +69,8 @@
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.name;
-    extraGroups = [ "networkmanager" "wheel" "video" "audio"];
+    extraGroups =
+      [ "networkmanager" "wheel" "video" "audio" "input" "plugdev" "uinput" ];
     packages = [ ];
   };
 

@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "apple-emoji": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1663037012,
+        "narHash": "sha256-8Eaer1HJCrUnlzinz0B4wrlsrnuk2xL0PnYJRCQfWK4=",
+        "owner": "zhdsmy",
+        "repo": "apple-emoji",
+        "rev": "eabcce8a5e0a4b1e288da8ef80f4709bcb6da706",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zhdsmy",
+        "repo": "apple-emoji",
+        "type": "github"
+      }
+    },
     "aquamarine": {
       "inputs": {
         "hyprutils": [
@@ -897,6 +913,7 @@
     },
     "root": {
       "inputs": {
+        "apple-emoji": "apple-emoji",
         "blocklist-hosts": "blocklist-hosts",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
