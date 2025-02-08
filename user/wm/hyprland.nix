@@ -1,11 +1,15 @@
 { inputs, pkgs, ... }:
 
 {
-  imports = [ ./input/zhongwen.nix ];
+  imports = [
+    ./input/zhongwen.nix
+    ./fuzzel.nix
+    # ./cursor.nix
+  ];
 
   home.packages = with pkgs; [
     dunst
-    wofi
+    #wofi
     pavucontrol
     networkmanagerapplet
     hyprpaper
@@ -34,7 +38,8 @@
     settings = {
       # Settings Programs to Use
       "$terminal" = "kitty";
-      "$menu" = "wofi --show drun";
+      # "$menu" = "wofi --show drun";
+      "$menu" = "fuzzel";
 
       # See https://wiki.hyprland.org/Configuring/Monitors/
       "monitor" = ",preferred,auto,auto";
@@ -44,8 +49,8 @@
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
-        "XCURSOR_SIZE,24"
-        "HYPRCURSOR_SIZE,24"
+        # "XCURSOR_THEME,Bibata-Modern-Classic"
+        # "XCURSOR_SIZE,24"
       ];
 
       ## AUTOSTART ##

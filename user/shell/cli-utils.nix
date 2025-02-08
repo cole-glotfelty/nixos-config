@@ -7,6 +7,10 @@
     htop bottom
     wget curl
     fastfetch # has home manager options
+    sshfs
+    magic-wormhole
+    libqalculate # qalc
+    tealdeer
 
     # Applications
     pandoc

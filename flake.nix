@@ -38,9 +38,9 @@
           modules = [ ./pharo/configuration.nix ];
           specialArgs = {
             inherit inputs;
+            inherit pkgs;
             inherit systemSettings;
             inherit userSettings;
-            inherit pkgs;
             inherit pkgs-stable;
           };
         };

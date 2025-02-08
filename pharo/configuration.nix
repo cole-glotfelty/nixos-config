@@ -10,7 +10,7 @@
     ../system/hardware/LUKS.nix
     ../system/hardware/kernel.nix
     ../system/hardware/bluetooth.nix
-    ../system/hardware/usb.nix
+    ../system/hardware/keyboard.nix
     ../system/hardware/time.nix
     ../system/hardware/opengl.nix
     ../system/hardware/gc.nix
@@ -18,6 +18,7 @@
     ../system/security/blocklist.nix
     ../system/security/doas.nix
     ../system/apps/mullvad-vpn.nix
+    ../system/apps/steam.nix
     ../system/wm/hyprland.nix
     ../system/style/stylix.nix
   ];

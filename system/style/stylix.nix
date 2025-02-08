@@ -5,7 +5,8 @@
 
   stylix = {
     enable = true;
-    image = ./wallpaper.png;
+    # image = ./wallpaper.png;
+    image = ./wallpaper.jpg;
     polarity = "dark";
   };
 }

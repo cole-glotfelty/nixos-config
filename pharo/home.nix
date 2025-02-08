@@ -39,12 +39,6 @@
   programs.firefox.enable = true;
 
   home.packages = with pkgs; [
-    # Core
-    sshfs
-    magic-wormhole
-    libqalculate # qalc
-    tealdeer
-
     # To Remove
     vscode
 
@@ -58,6 +52,11 @@
     feh
     qbittorrent
     cmus
+    yt-dlp
+
+    # Games
+    lutris
+    bottles
 
     # Browsers
     ungoogled-chromium
@@ -85,7 +84,7 @@
     EDITOR = userSettings.editor;
     TERM = userSettings.term;
     BROWSER = userSettings.browser;
-    MANPAGER = userSettings.editor;
+    # MANPAGER = userSettings.editor;
   };
 
   xdg = {
@@ -111,8 +110,6 @@
     mimeApps = {
       enable = true;
       defaultApplications = {
-        # "text/plain" = ["neovim.desktop"];
-        # "text/plain" = ["nvim.desktop"];
         "text/plain" = [ "${userSettings.editor}.desktop" ];
         "text/*" = [ "${userSettings.editor}.desktop" ];
         "image/*" = [ "feh.desktop" ];
