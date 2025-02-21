@@ -4,25 +4,48 @@
   programs.nixvim = {
     plugins.treesitter = {
       enable = true;
-
-      grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-        bash
-        json
-        lua
-        make
-        markdown
-        nix
-        regex
-        toml
-        vim
-        vimdoc
-        xml
-        yaml
-        c
-        cpp
-        python
-        rust
-      ];
+      settings = {
+        auto_install = true;
+        sync_install = false;
+        ensure_installed = [
+          "python"
+          "cpp"
+          "c"
+          "lua"
+          "vim"
+          "vimdoc"
+          "yaml"
+          "toml"
+          "rust"
+          "nix"
+        ];
+        highlight = {
+          enable = true;
+          additional_vim_regex_highlighting = false;
+        };
+        indent = {
+          enable = true;
+          disable = [ "python" ];
+        };
+      };
+      # grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+      #   bash
+      #   json
+      #   lua
+      #   make
+      #   markdown
+      #   nix
+      #   regex
+      #   toml
+      #   vim
+      #   vimdoc
+      #   xml
+      #   yaml
+      #   c
+      #   cpp
+      #   python
+      #   rust
+      # ];
     };
     plugins.treesitter-textobjects = {
       enable = true;

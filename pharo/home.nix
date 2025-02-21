@@ -7,6 +7,7 @@
     ../user/pkgs/git/git.nix
     ../user/pkgs/ssh/ssh.nix
     ../user/pkgs/vim/vim.nix
+    ../user/pkgs/tmux/tmux.nix
     # ../user/pkgs/neovim/neovim.nix 
     ../user/pkgs/latex/latex.nix
     ../user/pkgs/nixvim/nixvim.nix
@@ -65,6 +66,9 @@
     discord
     slack
     signal-desktop
+
+    # Video Calling
+    zoom-us
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

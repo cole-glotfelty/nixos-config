@@ -49,6 +49,7 @@
           nixfmt.enable = true;
           markdownlint.enable = true;
           shellharden.enable = true;
+          black.enable = true;
         };
       };
     };

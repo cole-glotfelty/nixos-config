@@ -21,7 +21,8 @@
         };
         clangd.enable = true;
         erlangls.enable = true;
-        pylsp.enable = true;
+        #pylsp.enable = true;
+        jedi_language_server.enable = true;
         lua_ls.enable = true;
         rust_analyzer.enable = true;
         rust_analyzer.installCargo = true;

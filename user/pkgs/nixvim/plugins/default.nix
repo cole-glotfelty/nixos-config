@@ -10,6 +10,7 @@
     ./autoclose.nix
     ./treesitter.nix
     ./vimtex.nix
+    ./telescope.nix
   ];
 
   programs.nixvim = {
