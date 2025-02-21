@@ -18,6 +18,7 @@
           "toml"
           "rust"
           "nix"
+          "erlang"
         ];
         highlight = {
           enable = true;
@@ -28,24 +29,6 @@
           disable = [ "python" ];
         };
       };
-      # grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-      #   bash
-      #   json
-      #   lua
-      #   make
-      #   markdown
-      #   nix
-      #   regex
-      #   toml
-      #   vim
-      #   vimdoc
-      #   xml
-      #   yaml
-      #   c
-      #   cpp
-      #   python
-      #   rust
-      # ];
     };
     plugins.treesitter-textobjects = {
       enable = true;
