@@ -1,70 +1,45 @@
 {
-  description = "System Configuration of Cole Glotfelty";
+  description = "System Configuration of Cole Glotfelty (V2)";
+  # Portions adapted from Sascha Koenig
 
-  outputs = inputs@{ self, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-      systemSettings = {
-        system = "x86_64-linux";
-        host = "Optiplex 7040";
-        hostname = "nixos";
-        timezone = "America/New_York";
-        locale = "en_US.UTF-8";
-      };
-
-      userSettings = {
-        username = "pharo";
-        name = "Cole Glotfelty";
-        editor = "nvim";
-        term = "kitty";
-        browser = "firefox";
-      };
-
-      pkgs = import inputs.nixpkgs {
-        system = systemSettings.system;
-        config.allowUnfree = true;
-      };
-      pkgs-stable = import inputs.nixpkgs-stable {
-        system = systemSettings.system;
-        config.allowUnfree = true;
-      };
-
-      lib = inputs.nixpkgs.lib;
-      home-manager = inputs.home-manager;
-
+      inherit (self) outputs;
+      systems = [
+        "aarch64-linux"
+        "i686-linux"
+        "x86_64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
     in {
+      packages =
+        forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      overlays = import ./overlays { inherit inputs; };
       nixosConfigurations = {
-        nixos = lib.nixosSystem { # value is typically host name
-          system = systemSettings.system;
-          modules = [ ./pharo/configuration.nix ];
-          specialArgs = {
-            inherit inputs;
-            inherit pkgs;
-            inherit systemSettings;
-            inherit userSettings;
-            inherit pkgs-stable;
-          };
+        casper = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/casper ];
+        };
+      };
+      homeConfigurations = {
+        "pharo@casper" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./home/pharo/casper.nix ];
         };
       };
 
-      homeConfigurations = {
-        pharo = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./pharo/home.nix ];
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit pkgs-stable;
-            inherit systemSettings;
-            inherit userSettings;
-          };
-        };
-      };
     };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland = {
       url = "github:hyprwm/Hyprland";
@@ -76,8 +51,6 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    stylix.url = "github:danth/stylix";
-
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -87,9 +60,9 @@
       url = "github:StevenBlack/hosts";
       flake = false;
     };
-    apple-emoji = {
-      url = "github:zhdsmy/apple-emoji";
-      flake = false;
-    };
+    # apple-emoji = {
+    #   url = "github:zhdsmy/apple-emoji";
+    #   flake = false;
+    # };
   };
 }
