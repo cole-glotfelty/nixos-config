@@ -1,7 +1,17 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./zsh.nix ./fzf.nix ./tmux.nix ./vim.nix ./ranger.nix ./git.nix ];
+  imports = [
+    ./zsh.nix
+    ./fzf.nix
+    ./tmux.nix
+    ./vim.nix
+    ./ranger.nix
+    ./git.nix
+    ./latex.nix
+    ./sshHosts.nix
+    ./nixvim
+  ];
 
   # NOTE: You may have to change some of these in the future
   programs.eza = {

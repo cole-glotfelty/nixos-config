@@ -8,6 +8,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   # Maybe fixes youtube/firefox's weirdness
+  # TODO: Make this an option or put somewhere else?
   boot.kernelParams = [ "intel_pstate=active" "vm.swappiness=10" ];
   zramSwap = {
     enable = true;
@@ -18,6 +19,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # TODO: Check this V
   # NOTE: Also in hardware config so maybe unneeded
   boot.initrd.luks.devices."luks-637f2ea7-ca67-4bf7-b4d2-c0d3dee28afb".device =
     "/dev/disk/by-uuid/637f2ea7-ca67-4bf7-b4d2-c0d3dee28afb";
@@ -45,21 +47,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # i18n.inputMethod = {
-  #   # enable = "fcitx5";
-  #   enable = true;
-  #   type = "fcitx5";
-  #   fcitx5 = {
-  #     waylandFrontend = true;
-  #     addons = with pkgs; [
-  #       fcitx5-gtk
-  #       fcitx5-skk-qt
-  #       fcitx5-rime
-  #       fcitx5-chinese-addons
-  #     ];
-  #   };
-  # };
-
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -70,11 +57,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    git
-    nixd # nix LSP
-  ];
+  environment.systemPackages = with pkgs; [ vim git ];
 
   services.openssh = {
     enable = true;
@@ -90,7 +73,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    # Unfuck this part
+    # TODO: Unfuck this part
     configPackages = [
       pkgs.xdg-desktop-portal
       pkgs.xdg-desktop-portal-gtk

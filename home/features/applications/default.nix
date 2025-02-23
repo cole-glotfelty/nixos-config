@@ -8,6 +8,7 @@
     ./kitty.nix
     ./alacritty.nix
     ./games.nix
+    ./electron.nix
   ];
 
   home.packages = with pkgs;

@@ -17,6 +17,8 @@
     config.allowUnfree = true;
   };
   nix = {
+    # TODO: look into nixPath for nixd, etc
+
     # nixPath = [ "nixpkgs=${inputs.nixpkgs}" ]; # for nixd LSP
     nixPath = [ "/etc/nix/path" ];
 

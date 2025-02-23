@@ -1,7 +1,12 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
-  imports = [ ./wayland.nix ];
-
-  # home.packages = with pkgs; [ ];
+  imports = [
+    ./wayland.nix
+    ./fuzzel.nix
+    ./zhongwen.nix
+    ./notifications.nix
+    ./waybar.nix
+    ./hyprland.nix
+  ];
 }

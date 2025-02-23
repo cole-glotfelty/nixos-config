@@ -8,6 +8,7 @@ in {
   config = mkIf cfg.enable {
     programs.git = {
       enable = true;
+      # TODO: Can I make this dependent on the home configuration it's included in?
       userName = "Cole Glotfelty";
       userEmail = "git@postagepaid.cc";
       aliases = {

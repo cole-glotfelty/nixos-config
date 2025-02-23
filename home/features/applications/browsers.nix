@@ -9,6 +9,8 @@ in {
     # TODO: expand on this config, should not have to change anything just sign in
     programs.firefox.enable = true;
 
+    home.sessionVariables = { BROWSER = "firefox"; };
+
     home.packages = with pkgs; [ ungoogled-chromium ];
   };
 }

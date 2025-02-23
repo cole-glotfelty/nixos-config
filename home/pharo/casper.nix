@@ -15,29 +15,35 @@
       zsh.enable = true;
       fzf.enable = true;
       tmux.enable = true;
-      # TODO: This needs love
-
-      # latex.enable = true;
+      latex.enable = true;
       vim.enable = true;
       # TODO: This needs some love
-
-      # nixvim.enable = true;
+      nixvim.enable = true;
       git.enable = true;
       ranger.enable = true;
+      sshHosts.enable = true;
     };
 
+    # TODO: do I need blueman and blueman applet?
     desktop = {
       # TODO: no wayland module here just WM/Compositors or maybe rename to waylandUtils
       wayland.enable = true;
       # cursor.enable = true;
       # NOTE: this may be should be a system level thing
 
-      # fonts.enable = true;
-      # fuzzel.enable = true;
-      # hyprland.enable = true;
-      # waybar.enable = true;
-      # zhongwen.enable = true;
+      fuzzel.enable = true;
+      hyprland.enable = true;
+      waybar.enable = true;
+      zhongwen.enable = true;
+      notifications.enable = true;
     };
+
+    # TODO: options for applications and app set theming (fonts and colors, etc)
+    # TODO: Maybe make a string option to select color schemes/theming?
+
+    # style = {
+    #   nix-colors. enable = true;
+    # };
 
     xdg = {
       mimeApps.enable = true;
@@ -48,6 +54,8 @@
       media.enable = true;
       messaging.enable = true;
       browsers.enable = true;
+      # TODO: Renable when switched to this config and try again
+      electronTweaks.enable = false;
       games.enable = true;
       kitty.enable = true;
       alacritty.enable = true;
