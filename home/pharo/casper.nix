@@ -12,6 +12,7 @@
 
   features = {
     cli = {
+      # TODO: This needs some love I want my old prompt back (no plugins though)
       zsh.enable = true;
       fzf.enable = true;
       tmux.enable = true;

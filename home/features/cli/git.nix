@@ -20,6 +20,8 @@ in {
         safe.directory = [
           "/home/${config.home.username}/nixos-config"
           "/home/${config.home.username}/.nixos-config/.git"
+          "/home/${config.home.username}/Projects/nixcfg/.git"
+          "/home/${config.home.username}/Projects/nixcfg"
         ];
       };
     };

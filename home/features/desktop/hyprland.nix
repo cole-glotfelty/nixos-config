@@ -22,6 +22,7 @@ in {
     ];
 
     # Set Cursor 
+    # TODO: figureout why cursor sizes are different
     home.pointerCursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
@@ -47,7 +48,8 @@ in {
           "XDG_SESSION_DESKTOP,Hyprland"
           "XDG_SESSION_TYPE,wayland"
           "HYPRCURSOR_THEME,Bibata-Modern-Classic"
-          "XCURSOR_SIZE,32"
+          "HYPRCURSOR_SIZE,24"
+          "XCURSOR_SIZE,24"
         ];
 
         ## AUTOSTART ##

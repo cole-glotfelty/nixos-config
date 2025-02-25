@@ -8,6 +8,7 @@ in {
 
   config = mkIf cfg.enable {
     # TODO: maybe this works better is it's a system level config?
+    # TODO: I think I need to enable fcit5 system level and then I can add addons here
     i18n.inputMethod = {
       enabled = "fcitx5";
       fcitx5.addons = with pkgs; [

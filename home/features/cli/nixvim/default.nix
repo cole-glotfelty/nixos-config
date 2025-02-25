@@ -17,9 +17,9 @@ in {
     programs.nixvim = {
       enable = true;
 
-      viAlias = true;
-      vimAlias = true; # this could cause problems
-      vimdiffAlias = true;
+      # viAlias = true;
+      # vimAlias = true; # this could cause problems
+      # vimdiffAlias = true;
 
       luaLoader.enable = true;
 

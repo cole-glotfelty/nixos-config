@@ -17,6 +17,7 @@
       packages =
         forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       overlays = import ./overlays { inherit inputs; };
+
       nixosConfigurations = {
         casper = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
@@ -30,7 +31,6 @@
           modules = [ ./home/pharo/casper.nix ];
         };
       };
-
     };
 
   inputs = {

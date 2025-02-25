@@ -21,7 +21,9 @@ in {
     };
 
     # Display Manager
-    services.displayManager.sddm.enable = true;
+    # services.displayManager.sddm.enable = true;
+    # TODO: Reference Sascha Koenig's Setup
+    # services.displayManager.enable = mkForce false;
 
     programs.hyprland = {
       enable = true;
