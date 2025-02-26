@@ -1,5 +1,12 @@
 { ... }:
 
 {
-  imports = [ ./sound.nix ./fonts.nix ./dbus.nix ./wayland.nix ./hyprland.nix ];
+  imports = [
+    ./sound.nix
+    ./fonts.nix
+    ./dbus.nix
+    ./wayland.nix
+    ./hyprland.nix
+    ./fcitx5.nix
+  ];
 }

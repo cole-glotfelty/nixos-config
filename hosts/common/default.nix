@@ -19,8 +19,8 @@
   nix = {
     # TODO: look into nixPath for nixd, etc
 
-    # nixPath = [ "nixpkgs=${inputs.nixpkgs}" ]; # for nixd LSP
-    nixPath = [ "/etc/nix/path" ];
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ]; # for nixd LSP
+    # nixPath = [ "/etc/nix/path" ];
 
     settings = {
       experimental-features = "nix-command flakes";

@@ -9,20 +9,14 @@ in {
     home.packages = with pkgs; [
       pavucontrol
       networkmanagerapplet
-      # hyprpaper
       swww
-      # TODO: Pick new wallpaper program
       hyprpicker
       hypridle
-      wl-clipboard
-      slurp
-      grim
       playerctl
       hyprpolkitagent
     ];
 
     # Set Cursor 
-    # TODO: figureout why cursor sizes are different
     home.pointerCursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";

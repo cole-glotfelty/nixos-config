@@ -38,6 +38,7 @@
       wayland.enable = true;
       fonts.enable = true;
       dbus.enable = true;
+      fcitx5.enable = true;
     };
   };
 

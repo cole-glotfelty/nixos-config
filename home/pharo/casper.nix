@@ -29,13 +29,9 @@
     desktop = {
       # TODO: no wayland module here just WM/Compositors or maybe rename to waylandUtils
       wayland.enable = true;
-      # cursor.enable = true;
-      # NOTE: this may be should be a system level thing
-
       fuzzel.enable = true;
       hyprland.enable = true;
       waybar.enable = true;
-      zhongwen.enable = true;
       notifications.enable = true;
     };
 
@@ -55,8 +51,7 @@
       media.enable = true;
       messaging.enable = true;
       browsers.enable = true;
-      # TODO: Renable when switched to this config and try again
-      electronTweaks.enable = false;
+      electronTweaks.enable = true;
       games.enable = true;
       kitty.enable = true;
       alacritty.enable = true;

@@ -20,6 +20,9 @@
 
   boot.initrd.luks.devices."luks-7c123754-a3aa-4c3a-bc44-2161e73de1ba".device = "/dev/disk/by-uuid/7c123754-a3aa-4c3a-bc44-2161e73de1ba";
 
+  # From configuration.nix to decrypt LUKS
+  boot.initrd.luks.devices."luks-637f2ea7-ca67-4bf7-b4d2-c0d3dee28afb".device = "/dev/disk/by-uuid/637f2ea7-ca67-4bf7-b4d2-c0d3dee28afb";
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/7923-1A20";
       fsType = "vfat";

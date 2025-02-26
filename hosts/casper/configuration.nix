@@ -8,7 +8,6 @@
   imports = [ ./hardware-configuration.nix ];
 
   # Maybe fixes youtube/firefox's weirdness
-  # TODO: Make this an option or put somewhere else?
   boot.kernelParams = [ "intel_pstate=active" "vm.swappiness=10" ];
   zramSwap = {
     enable = true;
@@ -19,10 +18,6 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  # TODO: Check this V
-  # NOTE: Also in hardware config so maybe unneeded
-  boot.initrd.luks.devices."luks-637f2ea7-ca67-4bf7-b4d2-c0d3dee28afb".device =
-    "/dev/disk/by-uuid/637f2ea7-ca67-4bf7-b4d2-c0d3dee28afb";
 
   # Enable Networking
   networking.hostName = "casper";

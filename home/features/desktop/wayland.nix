@@ -16,7 +16,7 @@ in {
       # wf-recorder
       # wl-mirror
       wl-clipboard
-      # wlogout
+      wlogout
       # wtype
       # ydotool
     ];

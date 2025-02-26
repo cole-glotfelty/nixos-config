@@ -6,12 +6,14 @@ in {
   options.features.applications.electronTweaks.enable =
     mkEnableOption "tweaks for electron applications";
   config = mkIf cfg.enable {
-    xdg.desktopEntries = {
-      # fcitx5 with electron applications
-      discord = {
-        inherit (pkgs.discord.desktop);
-        exec = "discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime";
-      };
+    xdg.desktopEntries.discord = {
+      name = "Discord";
+      exec =
+        "discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime";
+      icon = "discord";
+      type = "Application";
+      terminal = false;
     };
+
   };
 }
