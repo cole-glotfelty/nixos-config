@@ -12,8 +12,13 @@ in {
       syntaxHighlighting.enable = true;
       enableCompletion = true;
 
-      # NOTE: Plugins removed atm potentially figuring out different 
-      # installation method
+      antidote = {
+        enable = true;
+        plugins = [
+          "zap-zsh/supercharge"
+          "zap-zsh/atmachine-prompt"
+        ];
+      };
 
       initExtra = ''
         bindkey '^ ' autosuggest-accept
@@ -26,11 +31,10 @@ in {
 
       shellAliases = {
         "..." = "cd ../..";
-        # TBD If I need this icon flags now
-        ls = "${pkgs.eza}/bin/eza";
-        ll = "${pkgs.eza}/bin/eza -l";
-        la = "${pkgs.eza}/bin/eza -la";
-        tree = "${pkgs.eza}/bin/eza -T";
+        ls = "${pkgs.eza}/bin/eza --icons";
+        ll = "${pkgs.eza}/bin/eza -l --icons";
+        la = "${pkgs.eza}/bin/eza -la --icons";
+        tree = "${pkgs.eza}/bin/eza -T --icons";
         cat = "${pkgs.bat}/bin/bat";
       };
 
