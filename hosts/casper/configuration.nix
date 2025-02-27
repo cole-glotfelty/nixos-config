@@ -52,7 +52,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ vim git ];
+  environment.systemPackages = with pkgs; [ vim git nixd ];
 
   services.openssh = {
     enable = true;
@@ -62,7 +62,7 @@
 
   # ZSH Default Shell
   programs.zsh.enable = true;
-  # environment.shells = with pkgs; [ zsh bash ];
+  environment.shells = with pkgs; [ zsh bash dash ];
   # users.defaultUserShell = pkgs.zsh;
 
   xdg.portal = {

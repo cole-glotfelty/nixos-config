@@ -19,6 +19,8 @@
     };
   };
 
+  news.display = "silent";
+
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings = {

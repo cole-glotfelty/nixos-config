@@ -12,6 +12,7 @@ in {
       swww
       hyprpicker
       hypridle
+      # TODO: Add hyprlock config and use it here
       playerctl
       hyprpolkitagent
     ];
@@ -30,11 +31,7 @@ in {
       settings = {
         # Settings Programs to Use
         "$terminal" = "kitty";
-        # "$menu" = "wofi --show drun";
         "$menu" = "fuzzel";
-
-        # See https://wiki.hyprland.org/Configuring/Monitors/
-        "monitor" = ",preferred,auto,auto";
 
         # See https://wiki.hyprland.org/Configuring/Environment-variables/
         env = [

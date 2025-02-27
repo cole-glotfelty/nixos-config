@@ -12,7 +12,6 @@
 
   features = {
     cli = {
-      # TODO: This needs some love I want my old prompt back (no plugins though)
       zsh.enable = true;
       fzf.enable = true;
       tmux.enable = true;
@@ -55,6 +54,14 @@
       games.enable = true;
       kitty.enable = true;
       alacritty.enable = true;
+    };
+  };
+
+  wayland.windowManager.hyprland = {
+    settings = {
+      monitor = [
+        "HDMI-A-1,1920x1080@60,auto,auto"
+      ];
     };
   };
 }

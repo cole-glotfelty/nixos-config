@@ -1,4 +1,4 @@
-{ config, lib, inputs, pkgs, ... }:
+{ config, lib, inputs, ... }:
 
 with lib;
 let cfg = config.features.cli.nixvim;
@@ -17,6 +17,7 @@ in {
     programs.nixvim = {
       enable = true;
 
+      # TODO: Get these working
       # viAlias = true;
       # vimAlias = true; # this could cause problems
       # vimdiffAlias = true;

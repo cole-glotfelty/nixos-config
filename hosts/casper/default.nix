@@ -15,7 +15,6 @@
     hardware = {
       bluetooth.enable = true;
       zenKernel.enable = true;
-      # zramSwap.enable = true;
       QMKKeyboard.enable = true;
       opengl.enable = true;
       printing.enable = true;

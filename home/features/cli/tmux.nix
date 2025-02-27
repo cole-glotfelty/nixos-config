@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 let cfg = config.features.cli.tmux;
@@ -20,6 +20,7 @@ in {
 
         bind -T copy-mode-vi v send-keys -X begin-selection
         bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'wl-copy'
+        bind-key -r f run-shell "tmux neww ${pkgs.tmux-sessionizer}"
       '';
     };
   };

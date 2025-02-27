@@ -16,11 +16,13 @@
     ];
     config.allowUnfree = true;
   };
-  nix = {
-    # TODO: look into nixPath for nixd, etc
-
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ]; # for nixd LSP
-    # nixPath = [ "/etc/nix/path" ];
+  nix = let
+        flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  in {
+    registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
+    nixPath = [ "/etc/nix/path" ] ++ [ "nixpkgs=${inputs.nixpkgs}" ]
+      ++ lib.mapAttrsToList (flakeName: _: "${flakeName}=flake:${flakeName}")
+      flakeInputs;
 
     settings = {
       experimental-features = "nix-command flakes";

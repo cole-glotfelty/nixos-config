@@ -38,11 +38,12 @@ in {
         cat = "${pkgs.bat}/bin/bat";
       };
 
+      # TODO: Declare these here or in home sessionVars?
       profileExtra = ''
-        export NIX_PATH=nixpkgs=channel:nixos-unstable
-        export NIX_LOG=info
-        export TERMINAL=kitty
-        export EDITOR=nvim
+        # export NIX_PATH=nixpkgs=channel:nixos-unstable
+        # export NIX_LOG=info
+        # export TERMINAL=kitty
+        # export EDITOR=nvim
       '';
 
       # NOTE: This is specific to hyprland. also, this will need to be tested
