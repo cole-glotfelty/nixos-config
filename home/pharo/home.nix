@@ -20,7 +20,8 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [ tmux-sessionizer ];
+  # NOTE: I added zed remove or something idk
+  home.packages = with pkgs; [ tmux-sessionizer zed-editor ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
