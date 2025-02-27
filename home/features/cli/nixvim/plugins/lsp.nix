@@ -15,26 +15,28 @@ in {
         '';
         servers = {
           # Nix
-          nixd = {
-            enable = true;
-            settings = {
-              nixpkgs = {
-                # expr = "import <nixpkgs> { }"; 
-                expr = ''
-                  import (builtins.getFlake "git+file:///home/${config.home.username}/Projects/nixcfg").inputs.nixpkgs { }'';
-              };
-              # TODO: figure out someway to variable the hostname
-              formatting.command = [ "nixfmt" ];
-              # TODO: figure out why this doesn't pull home-manager configurations and bricks nixos ones
-              # TODO: Test identical config on regular neovim and see if there are any differences
-              options = {
-                nixos.expr = ''
-                  (builtins.getFlake "git+file:///home/${config.home.username}/Projects/nixcfg").nixosConfigurations.casper.options'';
-                # home-manager.expr = ''
-                #   (builtins.getFlake "git+file:///home/${config.home.username}/Projects/nixcfg").homeConfigurations."${config.home.username}".options'';
-              };
-            };
-          };
+          # TODO: Try nil_ls see if it works better (seems like what zed uses)
+          # nixd = {
+          #   enable = true;
+          #   settings = {
+          #     nixpkgs = {
+          #       # expr = "import <nixpkgs> { }"; 
+          #       expr = ''
+          #         import (builtins.getFlake "git+file:///home/${config.home.username}/Projects/nixcfg").inputs.nixpkgs { }'';
+          #     };
+          #     # TODO: figure out someway to variable the hostname
+          #     formatting.command = [ "nixfmt" ];
+          #     # TODO: figure out why this doesn't pull home-manager configurations and bricks nixos ones
+          #     # TODO: Test identical config on regular neovim and see if there are any differences
+          #     options = {
+          #       nixos.expr = ''
+          #         (builtins.getFlake "git+file:///home/${config.home.username}/Projects/nixcfg").nixosConfigurations.casper.options'';
+          #       # home-manager.expr = ''
+          #       #   (builtins.getFlake "git+file:///home/${config.home.username}/Projects/nixcfg").homeConfigurations."${config.home.username}".options'';
+          #     };
+          #   };
+          # };
+          nil_ls.enable = true;
           # C/C++
           clangd.enable = true;
           #Erlang
