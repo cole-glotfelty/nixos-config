@@ -16,6 +16,7 @@ in {
       cmus # music player # NOTE: potenitally replace with MPD and Client
       yt-dlp # webvideo downloading
       plex # personal streamed media
+      cider # apple music client (electron bleh)
     ];
   };
 }
