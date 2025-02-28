@@ -51,6 +51,7 @@
       messaging.enable = true;
       browsers.enable = true;
       electronTweaks.enable = true;
+      productivity.enable = true;
       games.enable = true;
       kitty.enable = true;
       alacritty.enable = true;

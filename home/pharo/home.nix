@@ -21,7 +21,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   # NOTE: I added zed remove or something idk
-  home.packages = with pkgs; [ tmux-sessionizer zed-editor ];
+  # NOTE: I added todoist-electron delete later
+  home.packages = with pkgs; [ tmux-sessionizer zed-editor todoist-electron ];
 
   home.sessionVariables = {
     EDITOR = "nvim";

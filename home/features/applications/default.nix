@@ -9,6 +9,7 @@
     ./alacritty.nix
     ./games.nix
     ./electron.nix
+    ./productivity.nix
   ];
 
   home.packages = with pkgs;
