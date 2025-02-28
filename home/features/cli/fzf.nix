@@ -10,8 +10,9 @@ in {
     # preview and toggle the preview (Sascha Koenig pt4, 5:46)
     programs.fzf = {
       enable = true;
-      enableZshIntegration = true;
-      enableBashIntegration = true;
+      # TODO: Change keybinds on this
+      # enableZshIntegration = true;
+      # enableBashIntegration = true;
     };
   };
 }
