@@ -12,6 +12,7 @@ in {
     ./treesitter.nix
     ./vimtex.nix
     ./telescope.nix
+    ./cloak.nix
   ];
 
   config = mkIf cfg.enable {

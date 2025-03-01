@@ -192,15 +192,6 @@ in {
           options.silent = true;
         }
 
-        # {
-        #   mode = "n";
-        #   key = "<leader>f";
-        #   action = ":lua vim.lsp.buf.format()<CR>";
-        #   options.desc = "Format";
-        #   options.noremap = true;
-        #   options.silent = true;
-        # }
-
         {
           mode = "n";
           key = "<leader>s";
@@ -261,29 +252,6 @@ in {
           options.noremap = true;
           options.silent = true;
         }
-
-        # {
-        #   mode = "n";
-        #   key = "<leader>a";
-        #   action = ":lua vim.lsp.buf.code_action()<CR>";
-        #   options.desc = "Code Action";
-        #   options.noremap = true;
-        #   options.silent = true;
-        # }
-
-        # TODO: Get gl gk and all other lsp commands working again
-
-        # -- Apply first quickfix/Code Actions
-        # -- credit: https://stackoverflow.com/questions/67988374/neovim-lsp-auto-fix-fix-current
-        # local function quickfix()
-        #     vim.lsp.buf.code_action({
-        #         filter = function(a) return a.isPreferred end,
-        #         apply = true
-        #     })
-        # end
-        #
-        # keymap("n", "gk", quickfix, opts)
-        # keymap("n", "<leader>a", vim.lsp.buf.code_action)
       ];
     };
   };
