@@ -9,10 +9,10 @@ in {
         enable = true;
         # TODO: Research this some more
         # TODO: Look into lsp-zero and primeagen stuff on how this works in normal neovim
-        capabilities = ''
-          local capabilities = vim.lsp.protocol.make_client_capabilities()
-          capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-        '';
+        # capabilities = ''
+        #   local capabilities = vim.lsp.protocol.make_client_capabilities()
+        #   capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+        # '';
         servers = {
           # Nix
           # TODO: Try nil_ls see if it works better (seems like what zed uses)
@@ -36,7 +36,32 @@ in {
           #     };
           #   };
           # };
-          nil_ls.enable = true;
+          nixd = {
+            enable = true;
+            settings = {
+              formatting = { command = [ "nixfmt" ]; };
+              nixpkgs = {
+                expr = ''
+                  import (builtins.getFlake "path:${
+                    toString ../../../..
+                  }").inputs.nixpkgs { }'';
+              };
+              options = {
+                nixos = {
+                  expr = ''
+                    (builtins.getFlake "path:${
+                      toString ../../../..
+                    }").nixosConfigurations.casper.options'';
+                };
+                "home-manager" = {
+                  expr = ''
+                    (builtins.getFlake "path:${
+                      toString ../../../..
+                    }").homeConfigurations."pharo@casper".options'';
+                };
+              };
+            };
+          }; # nil_ls.enable = true;
           # C/C++
           clangd.enable = true;
           #Erlang
