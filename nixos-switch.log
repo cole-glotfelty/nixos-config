@@ -1,34 +1,31 @@
 building the system configuration...
-these 13 derivations will be built:
-  /nix/store/9qfqalnz3yd4mbv7r4nc67s7lmlbnw1r-init.lua.drv
-  /nix/store/p5ghnr6nl9z5gwr4n4l8q44wsjlipkr9-nixvim-print-init.drv
-  /nix/store/53m8m4sb6sw8v3rnnhshj7imcvj573xq-nixvim.drv
-  /nix/store/bapbc2dq14h131za6m9a34q3npgfxkz4-home-manager-path.drv
-  /nix/store/yhfd6lc1br2ql4fmj1w2lvpxmdnx3sdp-hm_fontconfigconf.d10hmfonts.conf.drv
-  /nix/store/v76c6lwhvrs5m8b13q4sa27pjghlfnd8-home-manager-files.drv
-  /nix/store/kkjqcb5w5cay6g1raaqc4x4i9l56kfvm-home-manager-generation.drv
-  /nix/store/ih2xbr7dlp5lh9x2wwz3wi6b2h81dkpm-unit-home-manager-pharo.service.drv
-  /nix/store/mp71yr1whshx0gh876bh2mdyawpscymw-system-units.drv
-  /nix/store/rxnn810ild56acpmfb1qmck5d6a4mayw-user-environment.drv
-  /nix/store/xm0mqas02kaardnqhkmc5v2q0davh8wc-etc-nix-registry.json.drv
-  /nix/store/xhhlbxvd5mhkvwzxlb4rvw90cbwswq52-etc.drv
-  /nix/store/rgcb5102zhpz6psdzd22iq1sj232gp8r-nixos-system-casper-25.05.20250218.73cf49b.drv
-building '/nix/store/xm0mqas02kaardnqhkmc5v2q0davh8wc-etc-nix-registry.json.drv'...
-building '/nix/store/9qfqalnz3yd4mbv7r4nc67s7lmlbnw1r-init.lua.drv'...
-building '/nix/store/p5ghnr6nl9z5gwr4n4l8q44wsjlipkr9-nixvim-print-init.drv'...
-building '/nix/store/53m8m4sb6sw8v3rnnhshj7imcvj573xq-nixvim.drv'...
-building '/nix/store/bapbc2dq14h131za6m9a34q3npgfxkz4-home-manager-path.drv'...
-building '/nix/store/yhfd6lc1br2ql4fmj1w2lvpxmdnx3sdp-hm_fontconfigconf.d10hmfonts.conf.drv'...
-building '/nix/store/rxnn810ild56acpmfb1qmck5d6a4mayw-user-environment.drv'...
-building '/nix/store/v76c6lwhvrs5m8b13q4sa27pjghlfnd8-home-manager-files.drv'...
-building '/nix/store/kkjqcb5w5cay6g1raaqc4x4i9l56kfvm-home-manager-generation.drv'...
-building '/nix/store/ih2xbr7dlp5lh9x2wwz3wi6b2h81dkpm-unit-home-manager-pharo.service.drv'...
-building '/nix/store/mp71yr1whshx0gh876bh2mdyawpscymw-system-units.drv'...
-building '/nix/store/xhhlbxvd5mhkvwzxlb4rvw90cbwswq52-etc.drv'...
-building '/nix/store/rgcb5102zhpz6psdzd22iq1sj232gp8r-nixos-system-casper-25.05.20250218.73cf49b.drv'...
-activating the configuration...
-setting up /etc...
-reloading user units for pharo...
-restarting sysinit-reactivation.target
-the following new units were started: NetworkManager-dispatcher.service
-Done. The new configuration is /nix/store/rrmvn4sv3ybqsr97mpil8nw9hp46z1lj-nixos-system-casper-25.05.20250218.73cf49b
+error:
+       … while calling the 'head' builtin
+         at /nix/store/kdynjy1mbgkdg4p196v9gx6ljpf7q4nk-source/lib/attrsets.nix:1574:11:
+         1573|         || pred here (elemAt values 1) (head values) then
+         1574|           head values
+             |           ^
+         1575|         else
+
+       … while evaluating the attribute 'value'
+         at /nix/store/kdynjy1mbgkdg4p196v9gx6ljpf7q4nk-source/lib/modules.nix:853:9:
+          852|     in warnDeprecation opt //
+          853|       { value = addErrorContext "while evaluating the option `${showOption loc}':" value;
+             |         ^
+          854|         inherit (res.defsFinal') highestPrio;
+
+       … while evaluating the option `system.build.toplevel':
+
+       … while evaluating definitions from `/nix/store/kdynjy1mbgkdg4p196v9gx6ljpf7q4nk-source/nixos/modules/system/activation/top-level.nix':
+
+       … while evaluating the option `assertions':
+
+       … while evaluating definitions from `/nix/store/ninsx9simpzg02i7qxp55v4a80n8sq7c-source/nixos/common.nix':
+
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: The option `home-manager.users.pharo.home.extraConfig' does not exist. Definition values:
+       - In `/nix/store/w6vr8hczqhxy26rfr47v95dpga63vmhw-source/hosts/common/users/pharo.nix':
+           {
+             hostname = "casper";
+           }

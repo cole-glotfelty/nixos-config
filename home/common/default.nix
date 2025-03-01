@@ -1,6 +1,8 @@
 { config, lib, outputs, pkgs, ... }:
 
 {
+  imports = [ ./options.nix ];
+
   nixpkgs = {
     # You can add overlays here
     overlays = [

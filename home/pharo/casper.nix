@@ -10,6 +10,8 @@
     ./home.nix
   ];
 
+  custom.hostname = "casper";
+
   features = {
     cli = {
       zsh.enable = true;
