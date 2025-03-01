@@ -81,6 +81,23 @@ in {
         #   vim.keymap.set("n", "gk", quickfix, { desc = "Apply preferred code action" })
         # '';
         onAttach = ''
+
+          -- Print information about the current LSP client
+          print("LSP client attached: " .. vim.inspect(vim.lsp.get_active_clients({bufnr = 0})))
+
+          -- Check if diagnostic functions exist
+          print("vim.diagnostic exists: " .. tostring(vim.diagnostic ~= nil))
+          print("vim.diagnostic.open_float exists: " .. tostring(type(vim.diagnostic.open_float) == "function"))
+          print("vim.diagnostic.goto_prev exists: " .. tostring(type(vim.diagnostic.goto_prev) == "function"))
+          print("vim.diagnostic.goto_next exists: " .. tostring(type(vim.diagnostic.goto_next) == "function"))
+
+          -- Check if LSP buffer functions exist
+          print("vim.lsp.buf exists: " .. tostring(vim.lsp.buf ~= nil))
+          print("vim.lsp.buf.code_action exists: " .. tostring(type(vim.lsp.buf.code_action) == "function"))
+          print("vim.lsp.buf.rename exists: " .. tostring(type(vim.lsp.buf.rename) == "function"))
+          print("vim.lsp.buf.format exists: " .. tostring(type(vim.lsp.buf.format) == "function"))
+
+
           -- Set custom symbols for diagnostics
           local signs = { Error = "", Warn = "", Hint = "", Info = "" }
           for type, icon in pairs(signs) do
