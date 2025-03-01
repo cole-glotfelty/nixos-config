@@ -5,6 +5,7 @@ let cfg = config.features.cli.nixvim;
 in {
   config = mkIf cfg.enable {
     # TODO: See if this other plugin works better
+    # TODO: see if it can detect over lines
     programs.nixvim = {
       # plugins.autoclose = {
       #   enable = true;
