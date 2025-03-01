@@ -54,16 +54,16 @@ in {
           "gt" = "type_definition";
           "gi" = "implementation";
           "K" = "hover";
-          # "gl" = "open_float";
-          # "<leader>a" = "code_action";
-          # "<leader>rn" = "rename";
-          # "<leader>f" = "format";
+          "<leader>a" = "code_action";
+          "<leader>rn" = "rename";
+          "<leader>f" = "format";
         };
 
         # Define diagnostic navigation keymaps
         keymaps.diagnostic = {
           "[d" = "goto_prev"; # Go to previous diagnostic
           "]d" = "goto_next"; # Go to next diagnostic
+          "gl" = "open_float";
         };
 
         # TODO: Get this working V

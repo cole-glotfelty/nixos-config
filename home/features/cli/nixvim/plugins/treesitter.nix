@@ -22,8 +22,6 @@ in {
             "rust"
             "nix"
             "erlang"
-            "zsh"
-            "bash"
           ];
           highlight = {
             enable = true;
