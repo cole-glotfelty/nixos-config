@@ -87,23 +87,6 @@ in {
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
           end
-
-          -- Configure diagnostics display
-          vim.diagnostic.config({
-            virtual_text = true,
-            signs = true,
-            update_in_insert = false,
-            underline = true,
-            severity_sort = true,
-            float = {
-              focusable = false,
-              style = "minimal",
-              border = "rounded",
-              source = "always",
-              header = "",
-              prefix = "",
-            },
-          })
         '';
       };
     };
