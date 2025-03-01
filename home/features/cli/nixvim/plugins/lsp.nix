@@ -81,23 +81,6 @@ in {
         #   vim.keymap.set("n", "gk", quickfix, { desc = "Apply preferred code action" })
         # '';
         onAttach = ''
-
-          -- Print information about the current LSP client
-          print("LSP client attached: " .. vim.inspect(vim.lsp.get_active_clients({bufnr = 0})))
-
-          -- Check if diagnostic functions exist
-          print("vim.diagnostic exists: " .. tostring(vim.diagnostic ~= nil))
-          print("vim.diagnostic.open_float exists: " .. tostring(type(vim.diagnostic.open_float) == "function"))
-          print("vim.diagnostic.goto_prev exists: " .. tostring(type(vim.diagnostic.goto_prev) == "function"))
-          print("vim.diagnostic.goto_next exists: " .. tostring(type(vim.diagnostic.goto_next) == "function"))
-
-          -- Check if LSP buffer functions exist
-          print("vim.lsp.buf exists: " .. tostring(vim.lsp.buf ~= nil))
-          print("vim.lsp.buf.code_action exists: " .. tostring(type(vim.lsp.buf.code_action) == "function"))
-          print("vim.lsp.buf.rename exists: " .. tostring(type(vim.lsp.buf.rename) == "function"))
-          print("vim.lsp.buf.format exists: " .. tostring(type(vim.lsp.buf.format) == "function"))
-
-
           -- Set custom symbols for diagnostics
           local signs = { Error = "", Warn = "", Hint = "", Info = "" }
           for type, icon in pairs(signs) do
@@ -122,40 +105,40 @@ in {
             },
           })
           
-          -- Add manual keybindings for functions that might not be covered by the standard keymaps
-          local bufnr = vim.api.nvim_get_current_buf()
-          
-          -- Show diagnostics on the current line
-          vim.keymap.set("n", "gl", vim.diagnostic.open_float, 
-            { buffer = bufnr, desc = "Show line diagnostics", noremap = true, silent = true })
-          
-          -- Define the quickfix function
-          local function quickfix()
-            vim.lsp.buf.code_action({
-              filter = function(a) return a and a.isPreferred end,
-              apply = true
-            })
-          end
-          
-          -- Apply quickfix
-          vim.keymap.set("n", "gk", quickfix, 
-            { buffer = bufnr, desc = "Apply preferred code action", noremap = true, silent = true })
-          
-          -- Code actions manually defined (since it might be causing issues)
-          vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, 
-            { buffer = bufnr, desc = "Code actions", noremap = true, silent = true })
-          
-          -- Rename symbol
-          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, 
-            { buffer = bufnr, desc = "Rename symbol", noremap = true, silent = true })
-          
-          -- Format document
-          vim.keymap.set("n", "<leader>F", function() vim.lsp.buf.format({async = true}) end, 
-            { buffer = bufnr, desc = "Format buffer", noremap = true, silent = true })
-          
-          -- Location list with diagnostics
-          vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, 
-            { buffer = bufnr, desc = "Set location list with diagnostics", noremap = true, silent = true })
+          -- -- Add manual keybindings for functions that might not be covered by the standard keymaps
+          -- local bufnr = vim.api.nvim_get_current_buf()
+          -- 
+          -- -- Show diagnostics on the current line
+          -- vim.keymap.set("n", "gl", vim.diagnostic.open_float, 
+          --   { buffer = bufnr, desc = "Show line diagnostics", noremap = true, silent = true })
+          -- 
+          -- -- Define the quickfix function
+          -- local function quickfix()
+          --   vim.lsp.buf.code_action({
+          --     filter = function(a) return a and a.isPreferred end,
+          --     apply = true
+          --   })
+          -- end
+          -- 
+          -- -- Apply quickfix
+          -- vim.keymap.set("n", "gk", quickfix, 
+          --   { buffer = bufnr, desc = "Apply preferred code action", noremap = true, silent = true })
+          -- 
+          -- -- Code actions manually defined (since it might be causing issues)
+          -- vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, 
+          --   { buffer = bufnr, desc = "Code actions", noremap = true, silent = true })
+          -- 
+          -- -- Rename symbol
+          -- vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, 
+          --   { buffer = bufnr, desc = "Rename symbol", noremap = true, silent = true })
+          -- 
+          -- -- Format document
+          -- vim.keymap.set("n", "<leader>F", function() vim.lsp.buf.format({async = true}) end, 
+          --   { buffer = bufnr, desc = "Format buffer", noremap = true, silent = true })
+          -- 
+          -- -- Location list with diagnostics
+          -- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, 
+          --   { buffer = bufnr, desc = "Set location list with diagnostics", noremap = true, silent = true })
         '';
       };
     };
