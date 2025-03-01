@@ -11,10 +11,34 @@ in {
         enable = true;
         # TODO: Research this some more
         # TODO: Look into lsp-zero and primeagen stuff on how this works in normal neovim
-        # capabilities = ''
-        #   local capabilities = vim.lsp.protocol.make_client_capabilities()
-        #   capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-        # '';
+        capabilities = ''
+          local capabilities = vim.lsp.protocol.make_client_capabilities()
+          
+          -- Explicitly enable code action capabilities
+          capabilities.textDocument.codeAction = {
+            dynamicRegistration = true,
+            codeActionLiteralSupport = {
+              codeActionKind = {
+                valueSet = {
+                  "",
+                  "quickfix",
+                  "refactor",
+                  "refactor.extract",
+                  "refactor.inline",
+                  "refactor.rewrite",
+                  "source",
+                  "source.organizeImports",
+                }
+              }
+            },
+            dataSupport = true,
+            resolveSupport = {
+              properties = { "edit" }
+            }
+          }
+          
+          capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+        '';
         servers = {
           # Nix
           nixd = {
