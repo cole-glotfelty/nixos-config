@@ -4,7 +4,6 @@ stdenv.mkDerivation {
   pname = "tmux-sessionizer";
   version = "1.0.0";
 
-  # TODO: change this to a zsh script
   src = fetchFromGitLab {
     owner = "cole-glotfelty";
     repo = "shell-scripts";

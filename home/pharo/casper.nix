@@ -19,7 +19,6 @@
       tmux.enable = true;
       latex.enable = true;
       vim.enable = true;
-      # TODO: This needs some love
       nixvim.enable = true;
       git.enable = true;
       ranger.enable = true;
@@ -60,6 +59,7 @@
     };
   };
 
+  # TODO: make this dependent on hyprland option being enabled
   wayland.windowManager.hyprland = {
     settings = {
       monitor = [

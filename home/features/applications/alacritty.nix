@@ -6,6 +6,7 @@ in {
   options.features.applications.alacritty.enable =
     mkEnableOption "enable alacritty application";
   config = mkIf cfg.enable {
+    # TODO: Put dependency to install Fira Code Nerd Font
     programs.alacritty = {
       enable = true;
       settings = {

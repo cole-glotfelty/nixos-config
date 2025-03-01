@@ -28,7 +28,7 @@
     TERMINAL = "kitty";
     NIX_PATH = "nixpkgs=channel:nixos-unstable";
     NIX_LOG = "info";
-    # PROJECT_DIRS = builtins.concatStringsSep " " [ "$HOME" "$HOME/Projects/" ];
+    PROJECT_DIRS = "$HOME $HOME/Projects";
   };
 
   # Let Home Manager install and manage itself.
