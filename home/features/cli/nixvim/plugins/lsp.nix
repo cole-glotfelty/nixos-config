@@ -1,7 +1,8 @@
 { config, lib, ... }:
 
 with lib;
-let cfg = config.features.cli.nixvim;
+let
+  cfg = config.features.cli.nixvim;
   hostname = config.custom.hostname;
 in {
   config = mkIf cfg.enable {
@@ -23,7 +24,6 @@ in {
                 expr = ''
                   import (builtins.getFlake "git+file:///home/${config.home.username}/Projects/nixcfg").inputs.nixpkgs { }'';
               };
-              # TODO: figure out someway to variable the hostname
               formatting.command = [ "nixfmt" ];
               options = {
                 nixos.expr = ''
@@ -54,15 +54,56 @@ in {
           "gt" = "type_definition";
           "gi" = "implementation";
           "K" = "hover";
+          "gl" = "open_float";
+          "<leader>a" = "code_action";
+          "<leader>rn" = "rename";
+          "<leader>f" = "format";
         };
-        onAttach = ''
 
+        # Define diagnostic navigation keymaps
+        keymaps.diagnostic = {
+          "[d" = "goto_prev"; # Go to previous diagnostic
+          "]d" = "goto_next"; # Go to next diagnostic
+        };
+
+        # TODO: Get this working V
+
+        # extraConfig = ''
+        #   -- Define the quickfix function
+        #   local function quickfix()
+        #       vim.lsp.buf.code_action({
+        #           filter = function(a) return a.isPreferred end,
+        #           apply = true
+        #       })
+        #   end
+        #
+        #   -- Create the keybinding for gk (quickfix)
+        #   vim.keymap.set("n", "gk", quickfix, { desc = "Apply preferred code action" })
+        # '';
+        onAttach = ''
           -- Set custom symbols for diagnostics
           local signs = { Error = "", Warn = "", Hint = "", Info = "" }
           for type, icon in pairs(signs) do
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
           end
+
+          -- Configure diagnostics display
+          vim.diagnostic.config({
+            virtual_text = true,
+            signs = true,
+            update_in_insert = false,
+            underline = true,
+            severity_sort = true,
+            float = {
+              focusable = false,
+              style = "minimal",
+              border = "rounded",
+              source = "always",
+              header = "",
+              prefix = "",
+            },
+          })
         '';
       };
     };
