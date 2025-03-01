@@ -104,41 +104,18 @@ in {
               prefix = "",
             },
           })
-          
-          -- -- Add manual keybindings for functions that might not be covered by the standard keymaps
-          -- local bufnr = vim.api.nvim_get_current_buf()
-          -- 
-          -- -- Show diagnostics on the current line
-          -- vim.keymap.set("n", "gl", vim.diagnostic.open_float, 
-          --   { buffer = bufnr, desc = "Show line diagnostics", noremap = true, silent = true })
-          -- 
-          -- -- Define the quickfix function
-          -- local function quickfix()
-          --   vim.lsp.buf.code_action({
-          --     filter = function(a) return a and a.isPreferred end,
-          --     apply = true
-          --   })
-          -- end
-          -- 
-          -- -- Apply quickfix
-          -- vim.keymap.set("n", "gk", quickfix, 
-          --   { buffer = bufnr, desc = "Apply preferred code action", noremap = true, silent = true })
-          -- 
-          -- -- Code actions manually defined (since it might be causing issues)
-          -- vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, 
-          --   { buffer = bufnr, desc = "Code actions", noremap = true, silent = true })
-          -- 
-          -- -- Rename symbol
-          -- vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, 
-          --   { buffer = bufnr, desc = "Rename symbol", noremap = true, silent = true })
-          -- 
-          -- -- Format document
-          -- vim.keymap.set("n", "<leader>F", function() vim.lsp.buf.format({async = true}) end, 
-          --   { buffer = bufnr, desc = "Format buffer", noremap = true, silent = true })
-          -- 
-          -- -- Location list with diagnostics
-          -- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, 
-          --   { buffer = bufnr, desc = "Set location list with diagnostics", noremap = true, silent = true })
+
+          -- Define the quickfix function and keybinding (not available as a standard function)
+          local function quickfix()
+            vim.lsp.buf.code_action({
+              filter = function(a) return a and a.isPreferred end,
+              apply = true
+            })
+          end
+
+          -- Add quickfix keybinding manually
+          vim.keymap.set("n", "gk", quickfix, 
+            { buffer = vim.api.nvim_get_current_buf(), desc = "Apply preferred code action", noremap = true, silent = true })
         '';
       };
     };
