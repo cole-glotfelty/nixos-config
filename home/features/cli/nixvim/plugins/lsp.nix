@@ -31,8 +31,8 @@ in {
               options = {
                 nixos.expr = ''
                   (builtins.getFlake "git+file:///home/${config.home.username}/Projects/nixcfg").nixosConfigurations.casper.options'';
-                # home-manager.expr = ''
-                #   (builtins.getFlake "git+file:///home/${config.home.username}/Projects/nixcfg").homeConfigurations."${config.home.username}".options'';
+                home-manager.expr = ''
+                  (builtins.getFlake "git+file:///home/${config.home.username}/Projects/nixcfg").homeConfigurations."pharo@casper".options'';
               };
             };
           };
