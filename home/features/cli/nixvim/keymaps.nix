@@ -192,14 +192,14 @@ in {
           options.silent = true;
         }
 
-        {
-          mode = "n";
-          key = "<leader>f";
-          action = ":lua vim.lsp.buf.format()<CR>";
-          options.desc = "Format";
-          options.noremap = true;
-          options.silent = true;
-        }
+        # {
+        #   mode = "n";
+        #   key = "<leader>f";
+        #   action = ":lua vim.lsp.buf.format()<CR>";
+        #   options.desc = "Format";
+        #   options.noremap = true;
+        #   options.silent = true;
+        # }
 
         {
           mode = "n";
@@ -262,14 +262,14 @@ in {
           options.silent = true;
         }
 
-        {
-          mode = "n";
-          key = "<leader>a";
-          action = ":lua vim.lsp.buf.code_action()<CR>";
-          options.desc = "Code Action";
-          options.noremap = true;
-          options.silent = true;
-        }
+        # {
+        #   mode = "n";
+        #   key = "<leader>a";
+        #   action = ":lua vim.lsp.buf.code_action()<CR>";
+        #   options.desc = "Code Action";
+        #   options.noremap = true;
+        #   options.silent = true;
+        # }
 
         # TODO: Get gl gk and all other lsp commands working again
 
