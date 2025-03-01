@@ -257,7 +257,7 @@ in {
           mode = "n";
           key = "<leader>cs";
           action = ''
-            :CloakPreviewLine'';
+            :CloakPreviewLine<CR>'';
           options.desc = "(cloak) preview the current line of sensitive files";
           options.noremap = true;
           options.silent = true;
