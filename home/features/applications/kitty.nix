@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 let cfg = config.features.applications.kitty;
@@ -12,8 +12,12 @@ in {
       shellIntegration.enableZshIntegration = true;
       shellIntegration.enableBashIntegration = true;
       themeFile = "tokyo_night_night";
-      # TODO: Font Name or Package is better?
-      font.name = "FiraCode Nerd Font Mono";
+
+      font = {
+        package = pkgs.nerd-fonts.fira-code;
+        name = "FiraCode Nerd Font Mono";
+      };
+
       settings = {
         cursor_shape = "block";
         cursor_blink_interval = 0;
