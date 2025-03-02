@@ -35,6 +35,7 @@
     unzip
     wget
     curl
+    ncdu
     sshfs
     tealdeer
     magic-wormhole
