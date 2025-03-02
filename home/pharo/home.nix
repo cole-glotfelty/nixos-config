@@ -21,14 +21,14 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   # NOTE: I added todoist-electron delete later
-  home.packages = with pkgs; [ tmux-sessionizer todoist-electron ];
+  home.packages = with pkgs; [ todoist-electron ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
     TERMINAL = "kitty";
     NIX_PATH = "nixpkgs=channel:nixos-unstable";
     NIX_LOG = "info";
-    PROJECT_DIRS = "$HOME $HOME/Projects";
+    PROJECT_DIRS = "$HOME $HOME/Projects $HOME/Remote/Halligan/cs21";
   };
 
   # Let Home Manager install and manage itself.
