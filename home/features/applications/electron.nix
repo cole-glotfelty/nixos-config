@@ -15,5 +15,20 @@ in {
       terminal = false;
     };
 
+    # Add configuration for Todoist
+    xdg.desktopEntries.todoist = {
+      name = "Todoist";
+      exec =
+        "todoist --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --force-device-scale-factor=1.0";
+      icon = "todoist";
+      type = "Application";
+      terminal = false;
+    };
+
+    # Add this to your home.nix or a relevant config file
+    home.sessionVariables = {
+      NIXOS_OZONE_WL = "1"; # General fix for Electron apps
+    };
+
   };
 }

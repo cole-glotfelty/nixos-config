@@ -33,6 +33,7 @@
       hyprland.enable = true;
       waybar.enable = true;
       notifications.enable = true;
+      defaultFonts.enable = true;
     };
 
     # TODO: options for applications and app set theming (fonts and colors, etc)
@@ -61,10 +62,6 @@
 
   # TODO: make this dependent on hyprland option being enabled
   wayland.windowManager.hyprland = {
-    settings = {
-      monitor = [
-        "HDMI-A-1,1920x1080@60,auto,auto"
-      ];
-    };
+    settings = { monitor = [ "HDMI-A-1,1920x1080@60,auto,auto" ]; };
   };
 }

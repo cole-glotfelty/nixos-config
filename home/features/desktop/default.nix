@@ -7,5 +7,6 @@
     ./notifications.nix
     ./waybar.nix
     ./hyprland.nix
+    ./defaultfonts.nix
   ];
 }
