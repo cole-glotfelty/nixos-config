@@ -4,7 +4,7 @@ with lib;
 let
   cfg = config.features.security.blocklist;
   blocklist = builtins.readFile
-    "${inputs.blocklist-hosts}/alternates/gambling-porn/hosts";
+    "${inputs.blocklist-hosts}/alternates/fakenews-gambling-porn-social/hosts";
 
 in {
   options.features.security.blocklist.enable = mkEnableOption "enable blocklist";
