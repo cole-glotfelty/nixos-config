@@ -7,8 +7,8 @@ stdenv.mkDerivation {
   src = fetchFromGitLab {
     owner = "cole-glotfelty";
     repo = "shell-scripts";
-    rev = "24bd87fb31c74dd6308fef666240af85f50b524f";
-    sha256 = "0zzvydij8qm1y96asbm9pzkdm46m6ayb810r63sg847v9khyg8py";
+    rev = "35fc8e79946806a3dfc12a766fd970fb277a9283";
+    sha256 = "1cz5kvr644mqhz52mfgmph5jbs3fn8nbpanaz631nibbl0j01bck";
   };
 
   buildInputs = [ ];
