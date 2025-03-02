@@ -18,6 +18,8 @@ in {
         set -ga terminal-overrides ",screen-256color*:Tc"
         set -g status-style 'bg=#333333 fg=#5eacd3'
 
+        set-option -g update-environment "PROJECT_DIRS"
+
         bind -T copy-mode-vi v send-keys -X begin-selection
         bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'wl-copy'
         bind-key -r f run-shell "tmux neww ${pkgs.tmux-sessionizer}/bin/tmux-sessionizer"
